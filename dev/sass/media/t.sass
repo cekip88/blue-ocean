@@ -1,3 +1,65 @@
 $unit: 'px'
-.section
+body
+  font-size: 14px
+section
   +w($tablet#{$unit})
+
+
+.head
+  section
+    display: flex
+    justify-content: space-between
+  &-scrolled
+    .head-mobile-row
+      box-shadow: none
+      padding: 5px 0 5px 20px
+    section
+      box-shadow: 0 5px 5px rgba(0,0,0,0.2)
+    .head-logo-link
+      img:first-child
+        height: 40px
+  &-logo
+    &-link
+      img:first-child
+        height: 50px
+        transition: .35s ease
+      img:last-child
+        width: 90px
+  &-mobile-row
+    transition: .35s ease
+  &-burger
+    display: none
+  &-nav
+    +wh(384px,auto)
+    position: relative
+    padding-right: 8px
+    &-active
+      background-color: $red
+      color: $white
+    &-list
+      height: 100%
+      flex-direction: row
+      padding: 0
+    &-item
+      +wh(100%)
+      margin-bottom: 0
+      span:first-child
+        display: none
+    &-link
+      +wh(100%)
+      display: flex
+      align-items: center
+      justify-content: center
+      padding: 0 10px
+
+
+main
+  margin-top: 70px
+
+
+.slider
+.slide
+  &-content
+    +w(50%)
+    margin-left: auto
+    background-color: rgba(18,90,156,.9)

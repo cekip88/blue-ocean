@@ -1,8 +1,9 @@
 @import "../../../../core/mixins/reset"
 @import "../../../../core/mixins/mixins"
 @import "vars"
-$font_body: 14px
+$font_body: 13px
 +font_inc($f_reg,'roboto-regular.ttf')
++font_inc($f_bold,'roboto-bold.ttf')
 .set
 	+wh(100%)
 html,body
@@ -10,7 +11,7 @@ html,body
 	overflow-x: hidden
 body
 	+wh(100%)
-	+font($font_body,$f_reg,$black)
+	+font($font_body,$f_reg,$gray)
 
 input,button
 	font-family: inherit
@@ -32,5 +33,3 @@ $unit: 'px'
 	@import "media/tl"
 +mq($desktop#{$unit})
 	@import "media/d"
-+mq($desktop-large#{$unit})
-	@import "media/dl"

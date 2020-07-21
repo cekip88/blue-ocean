@@ -1,2 +1,39 @@
-header
-	section
+header.head
+    section
+        .head-mobile-row
+            .head-logo
+                a(href='#').head-logo-link
+                    +img('logo-img.svg').head-logo-link-img
+                    +img('logo-word.svg').head-logo-link-word
+            .head-burger
+                button.head-burger-button
+                    span
+                    span
+                    span
+        .head-nav
+            ul.head-nav-list
+                li.head-nav-item
+                    a(href='#').head-nav-link.head-nav-active
+                        span
+                            +img('icon-1.svg')
+                        span Главная
+                li.head-nav-item
+                    a(href='#').head-nav-link
+                        span
+                            +img('icon-2.svg')
+                        span Продукция
+                li.head-nav-item
+                    a(href='#').head-nav-link
+                        span
+                            +img('icon-3.svg')
+                        span Каталог
+                li.head-nav-item
+                    a(href='#').head-nav-link
+                        span
+                            +img('icon-4.svg')
+                        span Прайс
+                li.head-nav-item
+                    a(href='#').head-nav-link
+                        span
+                            +img('icon-5.svg')
+                        span Контакты

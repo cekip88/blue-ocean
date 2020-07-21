@@ -1,3 +1,115 @@
 $unit: 'px'
-.section
-  +w($mobile#{$unit})
+section
+  +w(100%)
+  margin: 0 auto
+
+
+.head
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  margin: 0 auto
+  background-color: $white
+  &-scrolled
+    .head-mobile-row
+       box-shadow: 0 5px 5px rgba(0,0,0,0.2)
+  &-mobile-row
+    padding: 10px 10px 10px 20px
+    position: relative
+    z-index: 100
+    &-active
+      .head-burger
+        span
+          &:first-child
+            transform: rotate(45deg) translateY(1px)
+          &:nth-child(2)
+            opacity: 0
+            visibility: hidden
+            height: 0
+            margin: 0
+          &:last-child
+            transform: rotate(-45deg) translateY(-1px)
+      .head-nav
+        height: 330px
+  &-logo
+    &-link
+      &-img
+        margin-right: 10px
+  &-burger
+    &-button
+      padding: 10px
+    span
+      +wh(20px,2px)
+      display: block
+      background-color: $blue
+      transition: .35s ease
+      &:nth-child(2)
+        margin: 3px 0
+  &-nav
+    +wh(100%,0)
+    overflow: hidden
+    position: absolute
+    z-index: 10
+    transition: .35s ease
+    background-color: $white
+    &-list
+      height: 100%
+      padding: 40px 40px
+      flex-direction: column
+    &-link
+      span:first-child
+        +wh(30px)
+        background-color: $blue
+        border-radius: 50%
+        justify-content: center
+        margin-right: 10px
+
+
+
+
+.slide-content,.button,.head-nav-list,.head-mobile-row,.head-logo-link,.head-nav-link,.head-nav-link span:first-child
+  display: flex
+.slide-content,.button,.head-mobile-row,.head-logo-link,.head-nav-link,.head-nav-link span:first-child
+  align-items: center
+.head-mobile-row,.head-nav-list
+  justify-content: space-between
+.slide-content,.button
+  justify-content: center
+
+
+main
+  margin-top: 60px
+
+
+.button
+  +wh(200px,40px)
+  border-radius: 20px
+
+
+.slider
+.slide
+  height: 450px
+  color: $white
+  &-sub-title,&-list-item,&-title
+    margin-bottom: 10px
+  &-content
+    height: 100%
+    flex-direction: column
+    padding: 0 10px
+    background-color: rgba(18,90,156,1)
+    & p,& span
+      line-height: 16px
+  &-desc
+    margin-bottom: 20px
+  &-title
+    font: 24px $f_bold
+  &-p
+    margin-bottom: 30px
+  &-list
+    &-item
+      &:last-child
+        margin-bottom: 0
+  &-button
+    background-color: $white
+    color: $blue
