@@ -1,4 +1,36 @@
-footer
+footer.footer
+    section
+        .footer-row
+            h2.footer-title Свяжитесь с нами:
+            form.footer-form
+                input(type='text' placeholder='Имя').footer-form-input
+                input(type='text' placeholder='Телефон').footer-form-input
+                button.footer-form-button.button Заказать звонок
+        .footer-row
+            ul.footer-row-list
+                li.footer-row-item.footer-row-item-first
+                    h3.footer-row-item-title График работы:
+                    ul.footer-row-item-list
+                        li.footer-row-item-item пн-сб с 9.00 до 18.00 без обеда.
+                        li.footer-row-item-item Мы всегда рады новым и старым клиентам.
+                        li.footer-row-item-item У нас работает накопительная система скидок.
+                li.footer-row-item.footer-row-item-second
+                    h3.footer-row-item-title Наши адреса:
+                    ul.footer-row-item-list
+                        li.footer-row-item-item
+                            a(href='mailto:Blueoceankar@mail.ru') Blueoceankar@mail.ru
+                        li.footer-row-item-item
+                            a(href='Blue-ocean.satu.kz') Blue-ocean.satu.kz
+                        li.footer-row-item-item г.Караганда, ул.Нуркена Абдирова, д.19, вход со двора
+                li.footer-row-item.footer-row-item-third
+                    h3.footer-row-item-title Наши телефоны:
+                    ul.footer-row-item-list
+                        li.footer-row-item-item
+                            a(href='tel:+77004955055') +7 700 495 50 55
+                        li.footer-row-item-item
+                            a(href='tel:+77074654797') +7 707 465 47 97
+                        li.footer-row-item-item
+                            a(href='tel:+77212476788') +7 7212 47 67 88
 
     - if(fancy || slick)
         +inc('js','js/jquery-3.3.1.min.js')

@@ -6,6 +6,7 @@ section
 
 .head
   position: fixed
+  z-index: 100
   top: 0
   left: 0
   right: 0
@@ -53,28 +54,27 @@ section
     z-index: 10
     transition: .35s ease
     background-color: $white
+    box-shadow: 0 5px 5px rgba(0,0,0,0.2)
     &-list
       height: 100%
       padding: 40px 40px
-      flex-direction: column
     &-link
       span:first-child
         +wh(30px)
         background-color: $blue
         border-radius: 50%
-        justify-content: center
         margin-right: 10px
 
 
 
 
-.slide-content,.button,.head-nav-list,.head-mobile-row,.head-logo-link,.head-nav-link,.head-nav-link span:first-child
+.articles-photo-date,.crane-row,.articles-item,.why-list,.why-item,.about,.why,.articles,.sertificates,.map,.footer-form,.sertificates-full,.slide-content,.button,.head-nav-list,.head-mobile-row,.head-logo-link,.head-nav-link,.head-nav-link span:first-child
   display: flex
-.slide-content,.button,.head-mobile-row,.head-logo-link,.head-nav-link,.head-nav-link span:first-child
+.articles-photo-date,.crane-row,.sertificates-full,.about,.why,.why-item,.articles,.sertificates,.map,.footer-form,.slide-content,.button,.head-mobile-row,.head-logo-link,.head-nav-link,.head-nav-link span:first-child
   align-items: center
 .head-mobile-row,.head-nav-list
   justify-content: space-between
-.slide-content,.button
+.sertificates-full,.slide-content,.button,.head-nav-link span:first-child
   justify-content: center
 
 
@@ -85,25 +85,29 @@ main
 .button
   +wh(200px,40px)
   border-radius: 20px
+  &-blue
+    background-color: $blue
+    color: $white
 
 
-.slider
+
 .slide
   height: 450px
   color: $white
+  background-image: url('../img/slide-1.jpg')
+  background-position: center
+  background-repeat: no-repeat
+  background-size: auto 100%
   &-sub-title,&-list-item,&-title
     margin-bottom: 10px
   &-content
     height: 100%
-    flex-direction: column
     padding: 0 10px
-    background-color: rgba(18,90,156,1)
+    background-color: rgba(18,90,156,0.9)
     & p,& span
       line-height: 16px
   &-desc
     margin-bottom: 20px
-  &-title
-    font: 24px $f_bold
   &-p
     margin-bottom: 30px
   &-list
@@ -113,3 +117,170 @@ main
   &-button
     background-color: $white
     color: $blue
+
+
+.crane
+  &-row
+    +w(300px)
+    margin: 20px auto 15px
+  &-line
+    +wh(100%,1px)
+    background-color: $blue
+    margin-top: -3px
+    margin-bottom: 3px
+
+.block
+  &-title
+    font: 24px $f_bold
+    &-blue
+      color: $blue
+
+.about,.why,.articles,.sertificates,.footer-row
+  padding: 0 10px
+.slide-content,.head-nav-list,.crane-row,.articles-photo-date,.articles-item,.why-item,.sertificates-full,.about,.why,.articles,.sertificates,.map,.footer-form
+  flex-direction: column
+
+.about
+  &-img
+    +wh(100%,155px)
+    background-image: url('../img/BO-map.jpg')
+    background-repeat: no-repeat
+    background-position: center
+    background-size: cover
+  &-text,&-img
+    margin-top: 10px
+  &-text
+    strong
+      color: $blue
+      font-family: $f_bold
+
+
+.why
+  &-subtitle
+    margin-top: 10px
+  &-list
+    flex-wrap: wrap
+  &-item
+    +w(50%)
+    text-align: center
+    padding: 0 10px
+    margin-top: 20px
+    &-img
+      height: 30px
+      margin-bottom: 10px
+
+
+.articles
+  &-list
+    margin-top: 20px
+  &-item
+    align-items: flex-start
+    margin-bottom: 20px
+  &-title
+    font-size: 18px
+    margin-bottom: 15px
+  &-photo
+    position: relative
+    border: 1px solid $blue
+    &-img
+      +wh(300px,200px)
+      img
+        +wh(100%)
+        object-fit: cover
+    &-corner
+      position: absolute
+      top: -10px
+      right: -5px
+    &-date
+      position: absolute
+      margin: 0 auto
+      left: 0
+      right: 0
+      top: 5px
+    &-span
+      color: $white
+  &-desc
+    &-button
+      margin: 0 auto
+    &,&-button
+      margin-top: 10px
+  &-line
+    +wh(100%,1px)
+    background-color: $blue
+    margin-top: 20px
+  &-link
+    color: $blue
+    text-align: right
+    margin-left: auto
+    display: block
+
+
+.sertificates
+  &-list
+    margin-top: 20px
+  &-link
+    +w(90px)
+    display: block
+  &-full
+    +wh(100%,100vh)
+    position: fixed
+    z-index: 1000
+    top: 0
+    left: 0
+    background-color: rgba(0,0,0,0.8)
+    display: none
+    padding: 0 20px
+    &-title
+      font: 16px $f_bold
+      color: $white
+      text-align: center
+      margin-bottom: 20px
+    &-close
+      padding: 10px
+      position: relative
+      margin: -20px 0 20px auto
+      &:before,&:after
+        content: ''
+        display: table
+        +wh(20px,2px)
+        background-color: $white
+      &:before
+        transform: rotate(45deg) translateY(1.5px)
+      &:after
+        transform: rotate(-45deg) translateY(-1.5px)
+
+
+.map
+  margin-bottom: 20px
+  iframe
+    +w(100%)
+    border: none
+    margin-top: 20px
+
+
+.footer
+  background-color: $blue
+  padding: 20px 0
+  &,& a,&-form-input,&-form-button,&-form-input::placeholder
+    color: $white
+  &-title
+    font: 24px $f_bold
+    margin-bottom: 20px
+  &-form
+    display: none
+    &-input
+      +w(150px)
+      text-align: right
+      padding-right: 20px
+      padding-bottom: 5px
+      margin-bottom: 20px
+      border-bottom: 1px solid $white
+    &-button
+      border: 1px solid $white
+  &-row
+    &-item
+      margin-bottom: 20px
+      &-title
+        font-family: $f_bold
+      &-title,&-item
+        margin-bottom: 5px
