@@ -7,23 +7,19 @@ section
 
 .head
   &-scrolled
-    section
-      box-shadow: none
-    .head-mobile-row
-      padding: 0
     .head-logo
       padding: 10px 0
-  &-mobile-row
+  &-mobile-row,&-scrolled .head-mobile-row
     padding: 0
   &-logo
     padding: 22px 0
     transition: .35s ease
     &-link
       flex-direction: column
-      &-img
-        margin-right: 0
-      &-word
-        margin-top: 5px
+    &-img
+      margin-right: 0
+    &-word
+      margin-top: 5px
   &-nav
     +w(550px)
     padding: 0

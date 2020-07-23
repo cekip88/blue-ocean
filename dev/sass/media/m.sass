@@ -4,13 +4,14 @@ section
   margin: 0 auto
 
 
-.head
+header
   position: fixed
   z-index: 100
   top: 0
   left: 0
   right: 0
   margin: 0 auto
+.head
   background-color: $white
   &-scrolled
     .head-mobile-row
@@ -21,7 +22,7 @@ section
     z-index: 100
     &-active
       .head-burger
-        span
+        &-span
           &:first-child
             transform: rotate(45deg) translateY(1px)
           &:nth-child(2)
@@ -33,18 +34,23 @@ section
             transform: rotate(-45deg) translateY(-1px)
       .head-nav
         height: 330px
+    &-hidden
+      .head-nav
+        height: 450px
+      .head-nav-item:nth-child(2)
+        margin-bottom: 120px
+      .head-nav-hidden-list
+        height: 120px
   &-logo
-    &-link
-      &-img
-        margin-right: 10px
+    &-img
+      margin-right: 10px
   &-burger
     &-button
       padding: 10px
-    span
+    &-span
       +wh(20px,2px)
       display: block
       background-color: $blue
-      transition: .35s ease
       &:nth-child(2)
         margin: 3px 0
   &-nav
@@ -52,35 +58,66 @@ section
     overflow: hidden
     position: absolute
     z-index: 10
-    transition: .35s ease
     background-color: $white
     box-shadow: 0 5px 5px rgba(0,0,0,0.2)
     &-list
       height: 100%
       padding: 40px 40px
     &-link
-      span:first-child
+      height: 50px
+      padding: 5px 0
+      &-img
         +wh(30px)
         background-color: $blue
         border-radius: 50%
         margin-right: 10px
+    &-hidden
+      &-list
+        overflow: hidden
+        height: 0
+        left: 80px
+        top: 200px
+        position: absolute
+        z-index: 100
+      &-link
+        display: flex
+        align-items: center
+        height: 30px
 
 
+.head-burger-span,.head-nav,.head-nav-hidden-list,.head-nav-item
+  transition: .35s ease
 
 
-.articles-photo-date,.crane-row,.articles-item,.why-list,.why-item,.about,.why,.articles,.sertificates,.map,.footer-form,.sertificates-full,.slide-content,.button,.head-nav-list,.head-mobile-row,.head-logo-link,.head-nav-link,.head-nav-link span:first-child
+.articles-photo-date,.crane-row,.articles-item,
+.why-list,.why-item,.about,.why,.articles,
+.sertificates,.map,.footer-form,.sertificates-full,
+.slide-content,.button,.head-mobile-row,
+.head-logo-link,.head-nav-link,.head-nav-link-img
   display: flex
-.articles-photo-date,.crane-row,.sertificates-full,.about,.why,.why-item,.articles,.sertificates,.map,.footer-form,.slide-content,.button,.head-mobile-row,.head-logo-link,.head-nav-link,.head-nav-link span:first-child
+
+.articles-photo-date,.crane-row,.sertificates-full,
+.about,.why,.why-item,.articles,.sertificates,.map,
+.footer-form,.slide-content,.button,.head-mobile-row,
+.head-logo-link,.head-nav-link,.head-nav-link-img
   align-items: center
-.head-mobile-row,.head-nav-list
+
+.head-mobile-row
   justify-content: space-between
-.sertificates-full,.slide-content,.button,.head-nav-link span:first-child
+
+.sertificates-full,.slide-content,.button,.head-nav-link-img
   justify-content: center
 
+.slide-content,.crane-row,.articles-photo-date,
+.articles-item,.why-item,.sertificates-full,.about,.why,.articles,
+.sertificates,.map,.footer-form
+  flex-direction: column
 
 main
   margin-top: 60px
 
+.about,.why,.articles,.sertificates,.footer-row,.products
+  padding: 0 10px
 
 .button
   +wh(200px,40px)
@@ -135,10 +172,9 @@ main
     &-blue
       color: $blue
 
-.about,.why,.articles,.sertificates,.footer-row
-  padding: 0 10px
-.slide-content,.head-nav-list,.crane-row,.articles-photo-date,.articles-item,.why-item,.sertificates-full,.about,.why,.articles,.sertificates,.map,.footer-form
-  flex-direction: column
+
+.products
+  display: none
 
 .about
   &-img
@@ -166,7 +202,7 @@ main
     padding: 0 10px
     margin-top: 20px
     &-img
-      height: 30px
+      height: 40px
       margin-bottom: 10px
 
 
@@ -181,9 +217,10 @@ main
     margin-bottom: 15px
   &-photo
     position: relative
-    border: 1px solid $blue
+    +w(300px)
     &-img
-      +wh(300px,200px)
+      +wh(100%,200px)
+      border: 1px solid $blue
       img
         +wh(100%)
         object-fit: cover
@@ -253,7 +290,7 @@ main
 .map
   margin-bottom: 20px
   iframe
-    +w(100%)
+    +wh(100%,250px)
     border: none
     margin-top: 20px
 

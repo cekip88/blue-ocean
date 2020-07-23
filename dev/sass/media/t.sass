@@ -6,37 +6,51 @@ section
 
 
 .head
+  position: relative
+  z-index: 100
   section
     display: flex
     justify-content: space-between
   &-scrolled
+    .head
+      box-shadow: 0 5px 5px rgba(0,0,0,0.2)
     .head-mobile-row
       box-shadow: none
       padding: 5px 0 5px 20px
-    section
-      box-shadow: 0 5px 5px rgba(0,0,0,0.2)
     .head-logo-link
       img:first-child
         height: 40px
+    .head-nav-hidden-list
+      top: 50px
+  &-mobile-row-hidden
+    .head
+      box-shadow: 0 5px 5px rgba(0,0,0,0.2)
+    .head-nav
+      height: auto
+      &-item:nth-child(2)
+        margin-bottom: 0
+    .head-nav-hidden-list
+      height: 160px
+      transform: translateY(0px)
   &-logo
-    &-link
-      img:first-child
-        height: 50px
-        transition: .35s ease
-      img:last-child
-        width: 90px
+    &-img
+      height: 50px
+      transition: .35s ease
+    &-word
+      width: 90px
   &-mobile-row
     transition: .35s ease
   &-burger
     display: none
   &-nav
     +wh(384px,auto)
+    overflow: visible
     position: relative
     padding-right: 8px
     box-shadow: none
     &-list
       height: 100%
-      flex-direction: row
+      display: flex
       padding: 0
     &-item
       +wh(100%)
@@ -50,14 +64,30 @@ section
       justify-content: center
       padding: 0 10px
       color: $blue
+      position: relative
+      z-index: 100
+      background-color: $white
     &-active
       background-color: $red
       color: $white
-
+    &-hidden-list
+      height: 160px
+      transform: translateY(-100%)
+      background-color: $white
+      top: 70px
+      left: 457px
+      z-index: 90
+      padding: 20px 30px
+      box-shadow: 0 5px 5px rgba(0,0,0,.2)
+      a
+        color: $blue
 
 main
   margin-top: 70px
-
+.crane
+  &-row
+    margin: 30px auto
+    width: 500px
 
 .slider
 .slide
@@ -66,3 +96,67 @@ main
     margin-left: auto
     padding: 0 50px
     align-items: flex-start
+
+.products
+  display: block
+  &-list
+    display: flex
+    justify-content: space-between
+  &-item
+    +w(181px)
+    flex: 0 0 181px
+    background-color: $blue
+  &-link
+    +w(100%)
+    display: flex
+    align-items: center
+    flex-direction: column
+    padding: 1px
+    &-photo
+      +wh(179px)
+      overflow: hidden
+      background-color: $white
+      display: flex
+      align-items: center
+      justify-content: center
+      background-image: url('../img/products-bgc.jpg')
+      img
+        height: 90%
+    &-text
+      padding: 10px 0
+      color: $white
+
+.about
+  &-img
+    height: 355px
+  &-desc
+    height: 355px
+    background-color: rgba(255,255,255,.9)
+    display: flex
+    flex-direction: column
+    justify-content: center
+    margin-top: -355px
+    padding: 0 20px
+
+.why
+  &-item
+    flex: 0 0 25%
+
+.articles
+  &-body
+    display: flex
+  &-photo
+    +w(200px)
+    flex: 0 0 200px
+    margin-right: 20px
+  &-desc
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    padding: 10px 0
+    &-button
+      margin: 10px 0 0
+
+.map
+  iframe
+    height: 300px
