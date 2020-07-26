@@ -9,6 +9,8 @@ section
   &-scrolled
     .head-logo
       padding: 10px 0
+    .head-nav-hidden-list
+      top: 76px
   &-mobile-row,&-scrolled .head-mobile-row
     padding: 0
   &-logo
@@ -21,12 +23,14 @@ section
     &-word
       margin-top: 5px
   &-nav
-    +w(550px)
     padding: 0
     &-list
       justify-content: space-between
     &-link
       padding: 0 20px
+    &-hidden-list
+      left: 611px
+      top: 110px
 
 
 main
@@ -36,10 +40,22 @@ main
   &-title
     font-size: 36px
 
+.crane
+  &-row
+    margin: 50px auto
 
 .slide
-  height: 640px
-  &-title,&-desc
-    margin-bottom: 30px
-  &-content p,&-content span
+  height: calc(100vh - 220px)
+  &-bg
+    +w(70%)
+  &-content
+    +w(30%)
+    background-color: $blue
+    margin-left: 70%
+  &-p
     line-height: 24px
+  &-button
+    transition: .35s ease
+  &-button:hover
+    background-color: $white
+    color: $blue

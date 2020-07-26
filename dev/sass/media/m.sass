@@ -4,6 +4,7 @@ section
   margin: 0 auto
 
 
+
 header
   position: fixed
   z-index: 100
@@ -33,12 +34,15 @@ header
           &:last-child
             transform: rotate(-45deg) translateY(-1px)
       .head-nav
-        height: 330px
+        height: 370px
     &-hidden
       .head-nav
-        height: 450px
+        height: 490px
       .head-nav-item:nth-child(2)
         margin-bottom: 120px
+      .head-nav-product:after
+        transform: rotate(315deg)
+        margin-top: 0
       .head-nav-hidden-list
         height: 120px
   &-logo
@@ -60,6 +64,11 @@ header
     z-index: 10
     background-color: $white
     box-shadow: 0 5px 5px rgba(0,0,0,0.2)
+    &-active
+      .head-nav-link-img
+        background-color: $red
+        svg path
+          fill: $white
     &-list
       height: 100%
       padding: 40px 40px
@@ -71,6 +80,19 @@ header
         background-color: $blue
         border-radius: 50%
         margin-right: 10px
+        svg
+          path
+            fill: $white
+    &-product
+      &:after
+        content: ''
+        display: table
+        +wh(5px)
+        border-top: 2px solid $blue
+        border-right: 2px solid $blue
+        transform: rotate(135deg)
+        margin-top: -3px
+        margin-left: 10px
     &-hidden
       &-list
         overflow: hidden
@@ -85,32 +107,33 @@ header
         height: 30px
 
 
-.head-burger-span,.head-nav,.head-nav-hidden-list,.head-nav-item
+.head-burger-span,.head-nav,.head-nav-hidden-list,
+.head-nav-item,.head-nav-product:after
   transition: .35s ease
 
 
 .articles-photo-date,.crane-row,.articles-item,
 .why-list,.why-item,.about,.why,.articles,
-.sertificates,.map,.footer-form,.sertificates-full,
+.sertificates,.map,.sertificates-full,
 .slide-content,.button,.head-mobile-row,
-.head-logo-link,.head-nav-link,.head-nav-link-img
+.head-logo-link,.head-nav-link,.head-nav-link-img,.slide-content
   display: flex
 
 .articles-photo-date,.crane-row,.sertificates-full,
 .about,.why,.why-item,.articles,.sertificates,.map,
 .footer-form,.slide-content,.button,.head-mobile-row,
-.head-logo-link,.head-nav-link,.head-nav-link-img
+.head-logo-link,.head-nav-link,.head-nav-link-img,.slide-content
   align-items: center
 
 .head-mobile-row
   justify-content: space-between
 
-.sertificates-full,.slide-content,.button,.head-nav-link-img
+.sertificates-full,.button,.head-nav-link-img,.slide-content
   justify-content: center
 
-.slide-content,.crane-row,.articles-photo-date,
+.slide-content,.crane-row,.articles-photo-date,.slide-content,
 .articles-item,.why-item,.sertificates-full,.about,.why,.articles,
-.sertificates,.map,.footer-form
+.sertificates,.map
   flex-direction: column
 
 main
@@ -128,34 +151,6 @@ main
 
 
 
-.slide
-  height: 450px
-  color: $white
-  background-image: url('../img/slide-1.jpg')
-  background-position: center
-  background-repeat: no-repeat
-  background-size: auto 100%
-  &-sub-title,&-list-item,&-title
-    margin-bottom: 10px
-  &-content
-    height: 100%
-    padding: 0 10px
-    background-color: rgba(18,90,156,0.9)
-    & p,& span
-      line-height: 16px
-  &-desc
-    margin-bottom: 20px
-  &-p
-    margin-bottom: 30px
-  &-list
-    &-item
-      &:last-child
-        margin-bottom: 0
-  &-button
-    background-color: $white
-    color: $blue
-
-
 .crane
   &-row
     +w(300px)
@@ -171,6 +166,40 @@ main
     font: 24px $f_bold
     &-blue
       color: $blue
+
+
+
+.slide
+  color: $white
+  height: calc(100vh - 60px)
+  position: relative
+  &-bg
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+  .slide-1
+    height: 100%
+    background-image: url('../img/slide-1.jpg')
+  &-content
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: rgba(0,0,0,0.5)
+    padding: 20px
+  &-title,&-p
+    text-align: center
+  &-title
+    font-size: 30px
+  &-p
+    font-family: $f_thin
+    line-height: 16px
+    margin: 15px 0 25px
+  &-button
+    border: 1px solid $white
+    color: $white
+
 
 
 .products
@@ -260,13 +289,17 @@ main
     display: block
   &-full
     +wh(100%,100vh)
+    transform: scale(.75)
+    opacity: 0
+    visibility: hidden
     position: fixed
     z-index: 1000
     top: 0
     left: 0
     background-color: rgba(0,0,0,0.8)
-    display: none
+    display: flex
     padding: 0 20px
+    transition: .5s cubic-bezier(0.9,-1.65, 0.09, 1.65)
     &-title
       font: 16px $f_bold
       color: $white
@@ -285,7 +318,10 @@ main
         transform: rotate(45deg) translateY(1.5px)
       &:after
         transform: rotate(-45deg) translateY(-1.5px)
-
+    &-show
+      transform: scale(1)
+      opacity: 1
+      visibility: visible
 
 .map
   margin-bottom: 20px
@@ -305,15 +341,6 @@ main
     margin-bottom: 20px
   &-form
     display: none
-    &-input
-      +w(150px)
-      text-align: right
-      padding-right: 20px
-      padding-bottom: 5px
-      margin-bottom: 20px
-      border-bottom: 1px solid $white
-    &-button
-      border: 1px solid $white
   &-row
     &-item
       margin-bottom: 20px

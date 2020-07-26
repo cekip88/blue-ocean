@@ -43,10 +43,9 @@ section
   &-burger
     display: none
   &-nav
-    +wh(384px,auto)
+    +wh(auto)
     overflow: visible
     position: relative
-    padding-right: 8px
     box-shadow: none
     &-list
       height: 100%
@@ -67,15 +66,18 @@ section
       position: relative
       z-index: 100
       background-color: $white
+    &-product
+      &:after
+        display: none
     &-active
       background-color: $red
       color: $white
     &-hidden-list
       height: 160px
-      transform: translateY(-100%)
+      transform: translateY(-110%)
       background-color: $white
       top: 70px
-      left: 457px
+      left: 379px
       z-index: 90
       padding: 20px 30px
       box-shadow: 0 5px 5px rgba(0,0,0,.2)
@@ -89,13 +91,23 @@ main
     margin: 30px auto
     width: 500px
 
+
+
 .slider
+  section
+    +w(100%)
 .slide
+  height: calc(100vh - 70px)
   &-content
-    +w(50%)
-    margin-left: auto
-    padding: 0 50px
-    align-items: flex-start
+    padding: 50px
+  &-title
+    font-size: 50px
+    font-family: $f_thin
+    strong
+      font-family: $f_bold
+  &-p
+    text-align: center
+
 
 .products
   display: block
@@ -160,3 +172,30 @@ main
 .map
   iframe
     height: 300px
+
+.footer
+  &-form
+    +w(480px)
+    display: flex
+    margin-left: auto
+    &-input
+      +w(120px)
+      text-align: right
+      padding-right: 10px
+      padding-bottom: 5px
+      border-bottom: 1px solid $white
+      margin-right: auto
+    &-button
+      border: 1px solid $white
+  &-row
+    display: flex
+    &:first-child
+      margin-bottom: 10px
+    &-list
+      display: flex
+      justify-content: space-between
+    &-item
+      flex: 0 0 250px
+      margin: 0
+      &-third
+        flex: 0 0 120px
