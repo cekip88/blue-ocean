@@ -1,6 +1,10 @@
 class Site {
     constructor (){
-        this.header = document.querySelector('header')
+        this.header = document.querySelector('header');
+        this.burgerButton = document.querySelector('.head-burger-button');
+        this.headNavProductButton = document.querySelector('.head-nav-product');
+        this.sertButton = document.querySelectorAll('.sertificates-link');
+        this.sertBg = document.querySelectorAll('.sertificates-full');
     }
 
     // При скролле добавляет или убирает класс scrolled хедеру
@@ -43,51 +47,66 @@ class Site {
         _.header.classList.toggle('head-mobile-row-hidden')
     }
 
-    // Показывает сертификат полностью
+    // Убирает Display:none у сертификатов
+    sertRemoveAttr(){
+        const _ = this;
+        let sertFullArr = document.querySelectorAll('.sertificates-full');
+        sertFullArr.forEach(function (el) {
+            el.removeAttribute('style');
+        })
+    }
+    // Показывает или скрывает сертификат полностью
     sertClick(e){
         const _ = this;
         let clickTarget = e.target;
-        if(clickTarget.className != 'sertificates-item'){
-            while(clickTarget.className != 'sertificates-item'){
-                clickTarget = clickTarget.parentNode;
-            }
+        while(clickTarget.className != 'sertificates-item'){
+            clickTarget = clickTarget.parentNode;
         }
-        clickTarget = clickTarget.querySelector('.sertificates-full');
-        clickTarget.classList.toggle('sertificates-full-show');
+        let cont = clickTarget.querySelector('.sertificates-full');
+        cont.classList.toggle('sertificates-full-show');
+    }
+
+
+    //Метод который вешает обработчики на кнопки
+    eHandler(){
+        const _ = this;
+        // Вешает обработчик на кнопку бургера
+        if(this.burgerButton){
+            this.burgerButton.addEventListener('click',(e) => {
+                e.preventDefault();
+                _.burgerClick()
+            });
+        }
+        // Вешает обработчики на кнопку меню Продукты
+        if(this.headNavProductButton){
+            this.headNavProductButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                _.productClick()
+            });
+        }
+        // Вешает обработчики на сертификаты
+        if(this.sertButton){
+            [...this.sertButton, ...this.sertBg].forEach((el) => {
+                el.addEventListener('click',(e) => {
+                    e.preventDefault();
+                    _.sertClick(e);
+                })
+            });
+        }
+        // Добавляет действия при скролле
+        window.addEventListener('scroll', () => {
+            _.scrl();
+        },{passive:true});
+        _.scrl();
+    }
+    //Метод который запускает нужные методы
+    init(){
+        if(document.querySelector('.sertificates-full')){
+            this.sertRemoveAttr();
+        }
+        this.eHandler();
     }
 }
 
 let site = new Site();
-let burgerButton = document.querySelector('.head-burger-button');
-let productButton = document.querySelector('.head-nav-product');
-let sertButton = document.querySelectorAll('.sertificates-link');
-let sertClose = document.querySelectorAll('.sertificates-full-close');
-
-
-burgerButton.addEventListener('click',function (e) {
-    site.burgerClick()
-});
-
-productButton.addEventListener('click',function (e) {
-    e.preventDefault();
-    site.productClick()
-});
-
-sertButton.forEach(function (el) {
-    el.addEventListener('click',function (e) {
-        e.preventDefault();
-        site.sertClick(e);
-    })
-});
-sertClose.forEach(function (el) {
-    el.addEventListener('click',function (e) {
-        e.preventDefault();
-        site.sertClick(e);
-    })
-});
-
-
-window.addEventListener('scroll',function () {
-    site.scrl();
-},{passive:true});
-site.scrl();
+site.init();

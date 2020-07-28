@@ -4,7 +4,6 @@ section
   margin: 0 auto
 
 
-
 header
   position: fixed
   z-index: 100
@@ -14,6 +13,7 @@ header
   margin: 0 auto
 .head
   background-color: $white
+  transition: .35s easegul
   &-scrolled
     .head-mobile-row
        box-shadow: 0 5px 5px rgba(0,0,0,0.2)
@@ -112,32 +112,51 @@ header
   transition: .35s ease
 
 
-.articles-photo-date,.crane-row,.articles-item,
-.why-list,.why-item,.about,.why,.articles,
-.sertificates,.map,.sertificates-full,
-.slide-content,.button,.head-mobile-row,
-.head-logo-link,.head-nav-link,.head-nav-link-img,.slide-content
+.crane-row,.button,
+.head-mobile-row,.head-logo-link,.head-nav-link-img,.head-nav-link,
+.slide-content,.slide-content,
+.about,
+.why,.why-list,.why-item,
+.objects,
+.articles,.articles-photo-date,.articles-item,
+.sertificates,.sertificates-full,
+.map section
   display: flex
 
-.articles-photo-date,.crane-row,.sertificates-full,
-.about,.why,.why-item,.articles,.sertificates,.map,
-.footer-form,.slide-content,.button,.head-mobile-row,
-.head-logo-link,.head-nav-link,.head-nav-link-img,.slide-content
+.crane-row,.button,
+.head-logo-link,.head-nav-link,.head-nav-link-img,.head-mobile-row,
+.slide-content,.slide-content,
+.about,
+.why,.why-item,
+.objects,
+.articles,.articles-photo-date,.sertificates-full,
+.sertificates,
+.map section,
+.footer-form
   align-items: center
 
 .head-mobile-row
   justify-content: space-between
 
-.sertificates-full,.button,.head-nav-link-img,.slide-content
+.button,
+.head-nav-link-img,
+.slide-content
   justify-content: center
 
-.slide-content,.crane-row,.articles-photo-date,.slide-content,
-.articles-item,.why-item,.sertificates-full,.about,.why,.articles,
-.sertificates,.map
+.crane-row,
+.slide-content,.slide-content,
+.about,
+.why,.why-item,
+.objects,
+.articles,.articles-item,.articles-photo-date,
+.sertificates,.sertificates-full,
+.map section
   flex-direction: column
 
 main
   margin-top: 60px
+  margin-bottom: 20px
+  min-height: calc(100vh - 436px)
 
 .about,.why,.articles,.sertificates,.footer-row,.products
   padding: 0 10px
@@ -149,12 +168,10 @@ main
     background-color: $blue
     color: $white
 
-
-
 .crane
   &-row
     +w(300px)
-    margin: 20px auto 15px
+    margin: 0 auto 15px
   &-line
     +wh(100%,1px)
     background-color: $blue
@@ -164,14 +181,13 @@ main
 .block
   &-title
     font: 24px $f_bold
-    &-blue
-      color: $blue
 
-
+.products,.about,.why,.objects,.articles,.sertificates,.map
+  margin-top: 20px
 
 .slide
   color: $white
-  height: calc(100vh - 60px)
+  height: calc(100vh - 120px)
   position: relative
   &-bg
     background-position: center
@@ -179,7 +195,7 @@ main
     background-size: cover
   .slide-1
     height: 100%
-    background-image: url('../img/slide-1.jpg')
+    background-image: url('../img/slide-1.1.jpg')
   &-content
     position: absolute
     top: 0
@@ -193,7 +209,7 @@ main
   &-title
     font-size: 30px
   &-p
-    font-family: $f_thin
+    font-family: $f_light
     line-height: 16px
     margin: 15px 0 25px
   &-button
@@ -235,6 +251,33 @@ main
       margin-bottom: 10px
 
 
+.objects
+  &-title
+    text-align: center
+  &-slide
+    &-1
+      .objects-slide-photo
+        background-image: url('../img/beijing-palace.jpg')
+    &-title,&-text
+      text-align: center
+    &-photo
+      +wh(100%,250px)
+      margin: 10px 0
+      position: relative
+      background-size: cover
+      background-position: center
+      background-repeat: no-repeat
+    &-title
+      font: 18px $f_light
+      padding: 10px 20px
+      background-color: $white
+      position: absolute
+      right: 0
+      top: 0
+    &-text
+      display: block
+
+
 .articles
   &-list
     margin-top: 20px
@@ -243,10 +286,10 @@ main
     margin-bottom: 20px
   &-title
     font-size: 18px
-    margin-bottom: 15px
+    margin: 0 auto 20px
+    text-align: center
   &-photo
     position: relative
-    +w(300px)
     &-img
       +wh(100%,200px)
       border: 1px solid $blue
@@ -266,10 +309,13 @@ main
     &-span
       color: $white
   &-desc
+    &-text
+      max-height: 84px
+      overflow: hidden
     &-button
       margin: 0 auto
     &,&-button
-      margin-top: 10px
+      margin-top: 15px
   &-line
     +wh(100%,1px)
     background-color: $blue
@@ -308,7 +354,7 @@ main
     &-close
       padding: 10px
       position: relative
-      margin: -20px 0 20px auto
+      margin: 30px 0 20px auto
       &:before,&:after
         content: ''
         display: table
@@ -324,7 +370,6 @@ main
       visibility: visible
 
 .map
-  margin-bottom: 20px
   iframe
     +wh(100%,250px)
     border: none

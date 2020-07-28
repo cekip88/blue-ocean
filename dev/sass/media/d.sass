@@ -1,48 +1,105 @@
 $unit: 'px'
 body
-  font-size: 16px
+  font-size: 15px
 section
   +w($desktop#{$unit})
 
 
+header>section
+  position: relative
+.head-mobile-row-hidden .head-nav-hidden-list
+  height: auto
 .head
   &-scrolled
-    .head-logo
-      padding: 10px 0
+    .head
+      &-logo
+        padding: 10px 0
+        &-img
+          transform: translateX(-19px)
+        &-word
+          margin-bottom: -23px
+          opacity: 0
+          visibility: hidden
     .head-nav-hidden-list
-      top: 76px
+      top: 0
   &-mobile-row,&-scrolled .head-mobile-row
     padding: 0
   &-logo
-    padding: 22px 0
+    padding: 15px 0
     transition: .35s ease
     &-link
       flex-direction: column
+      transition: .35s ease
+      &:hover
+        transform: scale(1.25)
     &-img
       margin-right: 0
     &-word
-      margin-top: 5px
+      +w(110px)
+      transition: .35s ease
+      margin-top: 10px
   &-nav
     padding: 0
     &-list
-      justify-content: space-between
+      padding-right: 0
+    &-item
+      margin-right: 30px
+      &:last-child
+        margin-right: 0
+    &-active
+      span:last-child:after
+        bottom: -10px
     &-link
-      padding: 0 20px
-    &-hidden-list
-      left: 611px
-      top: 110px
+      span
+        position: relative
+      &:hover
+        color: $blue
+        span:last-child:after
+          +wh(100%,2px)
+          background-color: $blue
+          content: ''
+          display: table
+          position: absolute
+          bottom: -10px
+    &-hidden
+      &-list
+        left: 710px
+        top: 0
+        padding: 0
+      &-link
+        padding: 10px 30px
+        height: auto
+        &:hover
+          background-color: $blue
+          color: $white
 
 
 main
-  margin-top: 110px
+  margin-top: 96px
+  margin-bottom: 0
+  min-height: calc(100vh -  363px)
 
 .block
   &-title
-    font-size: 36px
+    font-size: 48px
+    line-height: 48px
 
 .crane
   &-row
-    margin: 50px auto
+    margin-bottom: 50px
+
+.products,.about,.why,.objects,.articles,.sertificates,.map
+  margin-top: 50px
+
+.about,.why,.articles,.sertificates,.footer-row,.products
+  padding: 0
+
+.slide-button,.articles-desc-button
+  transition: .35s ease
+.slide-button:hover,.articles-desc-button:hover
+  background-color: $white
+  color: $blue
+  border: 1px solid $blue
 
 .slide
   height: calc(100vh - 220px)
@@ -52,10 +109,111 @@ main
     +w(30%)
     background-color: $blue
     margin-left: 70%
+  &-title
+    font-size: 36px
   &-p
     line-height: 24px
-  &-button
-    transition: .35s ease
-  &-button:hover
-    background-color: $white
-    color: $blue
+
+.products
+  &-link
+    img,&-text
+      transition: .35s ease
+    &-photo
+      height: 285px
+    &-text
+      font-size: 20px
+    &:hover
+      img
+        transform: scale(1.15)
+
+.about
+  &-img
+    margin-top: 20px
+    height: 400px
+    background-size: auto 100%
+  &-desc
+    height: 400px
+    margin-top: -400px
+    padding: 0 50px
+  &-text
+    margin-top: 20px
+    &:first-child
+      margin-top: 0
+
+.why
+  &-subtitle
+    font-size: 24px
+  &-item
+    margin-top: 50px
+    &-img
+      margin-bottom: 20px
+
+.objects
+  &-slide
+    &-photo
+      margin: 50px auto 20px
+
+.articles
+  &-list
+    margin-top: 50px
+  &-line
+    margin-top: 35px
+  &-title
+    font-size: 24px
+    margin-bottom: 25px
+  &-desc
+    &-text
+      max-height: 90px
+  &-photo
+    margin-right: 50px
+    &-date
+      top: 3px
+
+.sertificates
+  &-list
+    margin-top: 50px
+  &-full
+    &-close
+      transition: .35s ease
+      &:hover
+        transform: rotate(180deg)
+
+.map
+  section
+    +w(100%)
+    iframe
+      height: calc(100vh - 343px)
+
+.footer
+  padding: 30px 0
+  &-form
+    +w(auto)
+    &-input
+      +w(150px)
+      margin-right: 30px
+    &-button
+      transition: .35s ease
+      &:hover
+        background-color: $white
+        color: $blue
+  &-row
+    &:first-child
+      margin-bottom: 30px
+    &-item
+      &-item
+        margin-top: 0
+      &-list
+        height: 100px
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+      &-title
+        margin-bottom: 20px
+      &-first
+        flex: 0 0 410px
+      &-second
+        flex: 0 0 255px
+      &-third
+        flex: 0 0 145px
+    &-list
+      +w(100%)

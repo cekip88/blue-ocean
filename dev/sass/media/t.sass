@@ -1,9 +1,10 @@
 $unit: 'px'
+html
+  scroll-behavior: smooth
 body
   font-size: 14px
 section
   +w($tablet#{$unit})
-
 
 .head
   position: relative
@@ -11,6 +12,7 @@ section
   section
     display: flex
     justify-content: space-between
+    align-items: center
   &-scrolled
     .head
       box-shadow: 0 5px 5px rgba(0,0,0,0.2)
@@ -48,36 +50,40 @@ section
     position: relative
     box-shadow: none
     &-list
-      height: 100%
       display: flex
       padding: 0
     &-item
       +wh(100%)
       margin-bottom: 0
+      margin-right: 20px
       span:first-child
         display: none
     &-link
-      +wh(100%)
-      display: flex
-      align-items: center
-      justify-content: center
-      padding: 0 10px
+      height: auto
       color: $blue
       position: relative
       z-index: 100
       background-color: $white
+      padding: 0
     &-product
       &:after
         display: none
     &-active
-      background-color: $red
-      color: $white
+      color: $red
+      position: relative
+      span:last-child:after
+        +wh(100%,2px)
+        background-color: $red
+        content: ''
+        display: table
+        position: absolute
+        bottom: -5px
     &-hidden-list
       height: 160px
       transform: translateY(-110%)
       background-color: $white
       top: 70px
-      left: 379px
+      left: 350px
       z-index: 90
       padding: 20px 30px
       box-shadow: 0 5px 5px rgba(0,0,0,.2)
@@ -86,22 +92,29 @@ section
 
 main
   margin-top: 70px
+  min-height: calc(100vh - 286px)
+
 .crane
   &-row
-    margin: 30px auto
+    margin-bottom: 30px
     width: 500px
 
-
+.products,.about,.why,.objects,.articles,.sertificates,.map
+  margin-top: 30px
 
 .slider
   section
     +w(100%)
 .slide
-  height: calc(100vh - 70px)
+  height: 400px
+  &-bg
+    +w(60%)
   &-content
-    padding: 50px
+    +w(40%)
+    background-color: $blue
+    margin-left: 60%
   &-title
-    font-size: 50px
+    font-size: 30px
     font-family: $f_thin
     strong
       font-family: $f_bold
@@ -115,8 +128,7 @@ main
     display: flex
     justify-content: space-between
   &-item
-    +w(181px)
-    flex: 0 0 181px
+    +w(calc( (100% - 30px) / 4) )
     background-color: $blue
   &-link
     +w(100%)
@@ -125,7 +137,7 @@ main
     flex-direction: column
     padding: 1px
     &-photo
-      +wh(179px)
+      +wh(100%,180px)
       overflow: hidden
       background-color: $white
       display: flex
@@ -154,9 +166,23 @@ main
   &-item
     flex: 0 0 25%
 
+
+.objects
+  &-slide
+    &-photo
+      height: 512px
+    &-text
+      +w(80%)
+      margin: 0 auto
+    &-title
+      font-size: 24px
+      padding: 20px 50px
+
 .articles
   &-body
     display: flex
+  &-title
+    margin: 0 0 20px
   &-photo
     +w(200px)
     flex: 0 0 200px
@@ -165,15 +191,28 @@ main
     display: flex
     flex-direction: column
     justify-content: space-between
-    padding: 10px 0
+    padding: 20px 0
+    &-text
+      max-height: 96px
+      overflow: hidden
     &-button
       margin: 10px 0 0
+
+
+.sertificates
+  &-full
+    img
+      height: 70%
+    &-close
+      margin: 30px 30px 30px auto
 
 .map
   iframe
     height: 300px
 
 .footer
+  &-title
+    margin-bottom: 0
   &-form
     +w(480px)
     display: flex
@@ -185,13 +224,16 @@ main
       padding-bottom: 5px
       border-bottom: 1px solid $white
       margin-right: auto
+      &::placeholder
+        opacity: 50%
     &-button
       border: 1px solid $white
   &-row
     display: flex
     &:first-child
-      margin-bottom: 10px
+      margin-bottom: 20px
     &-list
+      +w(100%)
       display: flex
       justify-content: space-between
     &-item
@@ -199,3 +241,4 @@ main
       margin: 0
       &-third
         flex: 0 0 120px
+        text-align: right

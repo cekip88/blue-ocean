@@ -44,7 +44,7 @@ block content
                 .crane-row
                     +img('crane.svg').crane-img
                     .crane-line
-                h2.block-title.block-title-blue Кто мы такие?
+                h2.block-title Кто мы?
                 .about-img
                 .about-desc
                     p.about-text Компания ИП Голубой Океан является официальным дилером "#[strong Blue Ocean International Indusrial (UK) Group]", основанной в Лондоне, Великобритания.
@@ -56,21 +56,24 @@ block content
                 .crane-row
                     +img('crane.svg').crane-img
                     .crane-line
-                h2.block-title.block-title-blue Почему нас выбирают
+                h2.block-title Почему нас выбирают?
                 span.why-subtitle Наши преимущества
                 ul.why-list
                     li.why-item
                         +img('technologies.svg').why-item-img
-                        p.why-item-text Современные технологии
+                        p.why-item-text Современные технологии производства
                     li.why-item
                         +img('microscope.svg').why-item-img
-                        p.why-item-text Современная лаборатория тестирования
+                        p.why-item-text Собственная лаборатория тестирования
                     li.why-item
                         +img('quality.svg').why-item-img
                         p.why-item-text Европейские стандартны качества
                     li.why-item
                         +img('eco.svg').why-item-img
                         p.why-item-text Экологически чистая продукция
+                    li.why-item
+                        +img('calendar.svg').why-item-img
+                        p.why-item-text Более 12 лет на рынке
                     li.why-item
                         +img('money.svg').why-item-img
                         p.why-item-text Накопительная система скидок
@@ -81,11 +84,22 @@ block content
                         +img('assortment.svg').why-item-img
                         p.why-item-text Огромный ассортимент товаров
         section
+            .objects
+                .crane-row
+                    +img('crane.svg').crane-img
+                    .crane-line
+                h2.block-title.objects-title Объекты с нашей продукцией
+                .objects-slider
+                    .objects-slide.objects-slide-1
+                        .objects-slide-photo
+                            h3.objects-slide-title Beijing Palace Soluxe Hotel Astana
+                        span.objects-slide-text Beijing Palace Soluxe Hotel Astana. Один из самых высоких отелей Нур-Султана. На высоте 120 метров на последнем этаже расположен единственный как в городе, так и в Казахстане Вращающийся ресторан. Всего здание насчитывает 23 этажа.
+        section
             .articles
                 .crane-row
                     +img('crane.svg').crane-img
                     .crane-line
-                h2.block-title.block-title-blue Наши статьи
+                h2.block-title Наши статьи
                 ul.articles-list
                     li.articles-item
                         h3.articles-title Полипропиленовые трубы признак качества
@@ -141,54 +155,54 @@ block content
                 .crane-row
                     +img('crane.svg').crane-img
                     .crane-line
-                h2.block-title.block-title-blue Наши сертификаты
+                h2.block-title Наши сертификаты
                 ul.sertificates-list
                     li.sertificates-item
                         a(href='#').sertificates-link
                             +img('sert-1.jpg')
-                        .sertificates-full
+                        div(style='display:none').sertificates-full
                             a(href='#').sertificates-full-close
                             h3.sertificates-full-title ECM Сертификация (Италия) CE сертификат
                             +img('sert-1.jpg').sertificates-full-img
                     li.sertificates-item
                         a(href='#').sertificates-link
                             +img('sert-2.jpg')
-                        .sertificates-full
+                        div(style='display:none').sertificates-full
                             a(href='#').sertificates-full-close
                             h3.sertificates-full-title KIWA Сертификация (Нидерланды) No. K8767701
                             +img('sert-2.jpg').sertificates-full-img
                     li.sertificates-item
                         a(href='#').sertificates-link
                             +img('sert-3.jpg')
-                        .sertificates-full
+                        div(style='display:none').sertificates-full
                             a(href='#').sertificates-full-close
                             h3.sertificates-full-title SKZ Сертификация (Германия) А528
                             +img('sert-3.jpg').sertificates-full-img
                     li.sertificates-item
                         a(href='#').sertificates-link
                             +img('sert-1.jpg')
-                        .sertificates-full
+                        div(style='display:none').sertificates-full
                             a(href='#').sertificates-full-close
                             h3.sertificates-full-title ECM Сертификация (Италия) CE сертификат
                             +img('sert-1.jpg').sertificates-full-img
                     li.sertificates-item
                         a(href='#').sertificates-link
                             +img('sert-2.jpg')
-                        .sertificates-full
+                        div(style='display:none').sertificates-full
                             a(href='#').sertificates-full-close
                             h3.sertificates-full-title KIWA Сертификация (Нидерланды) No. K8767701
                             +img('sert-2.jpg').sertificates-full-img
                     li.sertificates-item
                         a(href='#').sertificates-link
                             +img('sert-3.jpg')
-                        .sertificates-full
+                        div(style='display:none').sertificates-full
                             a(href='#').sertificates-full-close
                             h3.sertificates-full-title SKZ Сертификация (Германия) А528
                             +img('sert-3.jpg').sertificates-full-img
-        section
-            .map
+        .map
+            section
                 .crane-row
                     +img('crane.svg').crane-img
                     .crane-line
-                h2.block-title.block-title-blue Мы на карте
+                h2.block-title Мы на карте
                 iframe(src="https://yandex.kz/map-widget/v1/-/CCQlfJD1tC" allowfullscreen="true" style="position:relative;")
