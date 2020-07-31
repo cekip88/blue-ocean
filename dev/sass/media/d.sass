@@ -5,10 +5,6 @@ section
   +w($desktop#{$unit})
 
 
-header>section
-  position: relative
-.head-mobile-row-hidden .head-nav-hidden-list
-  height: auto
 .head
   &-scrolled
     .head
@@ -18,10 +14,6 @@ header>section
           transform: translateX(-19px)
         &-word
           margin-bottom: -23px
-          opacity: 0
-          visibility: hidden
-    .head-nav-hidden-list
-      top: 0
   &-mobile-row,&-scrolled .head-mobile-row
     padding: 0
   &-logo
@@ -36,7 +28,6 @@ header>section
       margin-right: 0
     &-word
       +w(110px)
-      transition: .35s ease
       margin-top: 10px
   &-nav
     padding: 0
@@ -63,12 +54,8 @@ header>section
           bottom: -10px
     &-hidden
       &-list
-        left: 710px
-        top: 0
-        padding: 0
+        left: 650px
       &-link
-        padding: 10px 30px
-        height: auto
         &:hover
           background-color: $blue
           color: $white
@@ -91,7 +78,7 @@ main
 .products,.about,.why,.objects,.articles,.sertificates,.map
   margin-top: 50px
 
-.about,.why,.articles,.sertificates,.footer-row,.products
+.products,.about,.why,.articles,.sertificates,.footer-row
   padding: 0
 
 .slide-button,.articles-desc-button
@@ -115,16 +102,17 @@ main
     line-height: 24px
 
 .products
+  &-photo
+    height: 200px
+  &-title
+    font-size: 24px
+  &-text
+    +w(84%)
   &-link
-    img,&-text
-      transition: .35s ease
-    &-photo
-      height: 285px
-    &-text
-      font-size: 20px
+    transition: .35s ease
     &:hover
-      img
-        transform: scale(1.15)
+      background-color: $white
+      color: $blue
 
 .about
   &-img

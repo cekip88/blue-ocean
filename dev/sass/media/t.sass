@@ -16,14 +16,16 @@ section
   &-scrolled
     .head
       box-shadow: 0 5px 5px rgba(0,0,0,0.2)
-    .head-mobile-row
-      box-shadow: none
-      padding: 5px 0 5px 20px
-    .head-logo-link
-      img:first-child
-        height: 40px
-    .head-nav-hidden-list
-      top: 50px
+      &-mobile-row
+        box-shadow: none
+        padding: 5px 0 5px 20px
+      &-logo
+        &-link
+          img:first-child
+            height: 40px
+        &-word
+          opacity: 0
+          visibility: hidden
   &-mobile-row-hidden
     .head
       box-shadow: 0 5px 5px rgba(0,0,0,0.2)
@@ -32,15 +34,14 @@ section
       &-item:nth-child(2)
         margin-bottom: 0
     .head-nav-hidden-list
-      height: 160px
+      height: auto
       transform: translateY(0px)
   &-logo
     &-img
       height: 50px
-      transition: .35s ease
     &-word
       width: 90px
-  &-mobile-row
+  &-mobile-row,&-logo-word,&-logo-img
     transition: .35s ease
   &-burger
     display: none
@@ -51,15 +52,12 @@ section
     box-shadow: none
     &-list
       display: flex
-      padding: 0
+      margin: 0
     &-item
-      +wh(100%)
-      margin-bottom: 0
       margin-right: 20px
       span:first-child
         display: none
     &-link
-      height: auto
       color: $blue
       position: relative
       z-index: 100
@@ -70,7 +68,6 @@ section
         display: none
     &-active
       color: $red
-      position: relative
       span:last-child:after
         +wh(100%,2px)
         background-color: $red
@@ -78,17 +75,27 @@ section
         display: table
         position: absolute
         bottom: -5px
-    &-hidden-list
-      height: 160px
-      transform: translateY(-110%)
-      background-color: $white
-      top: 70px
-      left: 350px
-      z-index: 90
-      padding: 20px 30px
-      box-shadow: 0 5px 5px rgba(0,0,0,.2)
-      a
+    &-hidden
+      &-list
+        height: auto
+        transform: translateY(-110%)
+        background-color: $white
+        top: 100%
+        left: 280px
+        z-index: 90
+        box-shadow: 0 5px 5px rgba(0,0,0,.2)
+      &-item
+        height: auto
+        &:first-child
+          .head-nav-hidden-link
+            padding: 20px 30px 10px
+        &:last-child
+          .head-nav-hidden-link
+            padding: 10px 30px 20px
+      &-link
         color: $blue
+        height: auto
+        padding: 10px 30px
 
 main
   margin-top: 70px
@@ -128,27 +135,38 @@ main
     display: flex
     justify-content: space-between
   &-item
-    +w(calc( (100% - 30px) / 4) )
-    background-color: $blue
-  &-link
-    +w(100%)
+    +w(calc((100% - 60px) / 4))
+    text-align: center
+  &-photo
+    +wh(100%,140px)
+    border: 1px solid $blue
+    overflow: hidden
     display: flex
     align-items: center
-    flex-direction: column
-    padding: 1px
-    &-photo
-      +wh(100%,180px)
-      overflow: hidden
-      background-color: $white
-      display: flex
-      align-items: center
-      justify-content: center
-      background-image: url('../img/products-bgc.jpg')
-      img
-        height: 90%
-    &-text
-      padding: 10px 0
-      color: $white
+    justify-content: center
+    img
+      +wh(100%)
+      object-fit: cover
+  &-title
+    font: 18px $f_bold
+  &-text
+    width: 83%
+    margin: 0 auto
+  &-line
+    +wh(50px,1px)
+    background-color: $blue
+    margin: 0 auto
+  &-link
+    +w(fit-content)
+    border: 1px solid $blue
+    display: block
+    color: $white
+    margin: 0 auto
+    padding: 6px 36px
+    background-color: $blue
+    border-radius: 20px
+  &-photo,&-title,&-text,&-line
+    margin-bottom: 15px
 
 .about
   &-img
@@ -165,7 +183,6 @@ main
 .why
   &-item
     flex: 0 0 25%
-
 
 .objects
   &-slide
@@ -185,13 +202,34 @@ main
     margin: 0 0 20px
   &-photo
     +w(200px)
+    display: block
+    position: relative
     flex: 0 0 200px
     margin-right: 20px
+    &-img
+      +wh(100%,200px)
+      border: 1px solid $blue
+      img
+        +wh(100%)
+        object-fit: cover
+    &-corner
+      position: absolute
+      top: -10px
+      right: -5px
+    &-date
+      position: absolute
+      margin: 0 auto
+      left: 0
+      right: 0
+      top: 5px
+    &-span
+      color: $white
   &-desc
     display: flex
     flex-direction: column
     justify-content: space-between
     padding: 20px 0
+    margin-top: 0
     &-text
       max-height: 96px
       overflow: hidden

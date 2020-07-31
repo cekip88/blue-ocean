@@ -1,7 +1,7 @@
 class Site {
     constructor (){
         this.header = document.querySelector('header');
-        this.burgerButton = document.querySelector('.head-burger-button');
+        this.burgerButton = document.querySelector('.head-burger');
         this.headNavProductButton = document.querySelector('.head-nav-product');
         this.sertButton = document.querySelectorAll('.sertificates-link');
         this.sertBg = document.querySelectorAll('.sertificates-full');

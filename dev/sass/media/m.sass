@@ -13,7 +13,7 @@ header
   margin: 0 auto
 .head
   background-color: $white
-  transition: .35s easegul
+  transition: .35s ease
   &-scrolled
     .head-mobile-row
        box-shadow: 0 5px 5px rgba(0,0,0,0.2)
@@ -34,10 +34,8 @@ header
           &:last-child
             transform: rotate(-45deg) translateY(-1px)
       .head-nav
-        height: 370px
+        height: 100vh
     &-hidden
-      .head-nav
-        height: 490px
       .head-nav-item:nth-child(2)
         margin-bottom: 120px
       .head-nav-product:after
@@ -49,8 +47,7 @@ header
     &-img
       margin-right: 10px
   &-burger
-    &-button
-      padding: 10px
+    padding: 10px
     &-span
       +wh(20px,2px)
       display: block
@@ -60,21 +57,15 @@ header
   &-nav
     +wh(100%,0)
     overflow: hidden
-    position: absolute
-    z-index: 10
     background-color: $white
-    box-shadow: 0 5px 5px rgba(0,0,0,0.2)
     &-active
       .head-nav-link-img
         background-color: $red
-        svg path
-          fill: $white
     &-list
-      height: 100%
-      padding: 40px 40px
+      margin-top: 30px
+      margin-left: 40px
     &-link
-      height: 50px
-      padding: 5px 0
+      padding: 10px 0
       &-img
         +wh(30px)
         background-color: $blue
@@ -97,20 +88,24 @@ header
       &-list
         overflow: hidden
         height: 0
-        left: 80px
-        top: 200px
         position: absolute
-        z-index: 100
+        left: 80px
+        top: 190px
       &-link
         display: flex
         align-items: center
-        height: 30px
+        padding: 8px 0
 
 
 .head-burger-span,.head-nav,.head-nav-hidden-list,
 .head-nav-item,.head-nav-product:after
   transition: .35s ease
 
+.about,.why,.articles,.sertificates,.footer-row,.products
+  padding: 0 10px
+
+.products,.about,.why,.objects,.articles,.sertificates,.map
+  margin-top: 20px
 
 .crane-row,.button,
 .head-mobile-row,.head-logo-link,.head-nav-link-img,.head-nav-link,
@@ -158,9 +153,6 @@ main
   margin-bottom: 20px
   min-height: calc(100vh - 436px)
 
-.about,.why,.articles,.sertificates,.footer-row,.products
-  padding: 0 10px
-
 .button
   +wh(200px,40px)
   border-radius: 20px
@@ -181,9 +173,6 @@ main
 .block
   &-title
     font: 24px $f_bold
-
-.products,.about,.why,.objects,.articles,.sertificates,.map
-  margin-top: 20px
 
 .slide
   color: $white
@@ -217,9 +206,9 @@ main
     color: $white
 
 
-
 .products
   display: none
+
 
 .about
   &-img
@@ -320,11 +309,6 @@ main
     +wh(100%,1px)
     background-color: $blue
     margin-top: 20px
-  &-link
-    color: $blue
-    text-align: right
-    margin-left: auto
-    display: block
 
 
 .sertificates
