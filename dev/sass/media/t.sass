@@ -81,7 +81,7 @@ section
         transform: translateY(-110%)
         background-color: $white
         top: 100%
-        left: 280px
+        left: 282px
         z-index: 90
         box-shadow: 0 5px 5px rgba(0,0,0,.2)
       &-item
@@ -105,6 +105,11 @@ main
   &-row
     margin-bottom: 30px
     width: 500px
+
+.main-title
+  +w(100%)
+  font-size: 32px
+  text-align: left
 
 .products,.about,.why,.objects,.articles,.sertificates,.map
   margin-top: 30px
@@ -198,7 +203,7 @@ main
 .articles
   &-body
     display: flex
-  &-title
+  &-title,&-unit-title
     margin: 0 0 20px
   &-photo
     +w(200px)
@@ -235,7 +240,15 @@ main
       overflow: hidden
     &-button
       margin: 10px 0 0
+  &-filter
+    display: flex
+    align-items: center
+    justify-content: space-between
+    &-title
+      margin-right: 20px
 
+.pagination
+  padding: 20px 240px 0
 
 .sertificates
   &-full

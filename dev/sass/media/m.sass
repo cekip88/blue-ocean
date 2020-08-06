@@ -3,7 +3,6 @@ section
   +w(100%)
   margin: 0 auto
 
-
 header
   position: fixed
   z-index: 100
@@ -170,6 +169,11 @@ main
     margin-top: -3px
     margin-bottom: 3px
 
+
+.main
+  &-title
+    font: 24px $f_bold
+    padding-top: 20px
 .block
   &-title
     font: 24px $f_bold
@@ -205,10 +209,8 @@ main
     border: 1px solid $white
     color: $white
 
-
 .products
   display: none
-
 
 .about
   &-img
@@ -224,7 +226,6 @@ main
       color: $blue
       font-family: $f_bold
 
-
 .why
   &-subtitle
     margin-top: 10px
@@ -238,7 +239,6 @@ main
     &-img
       height: 40px
       margin-bottom: 10px
-
 
 .objects
   &-title
@@ -266,7 +266,6 @@ main
     &-text
       display: block
 
-
 .articles
   &-list
     margin-top: 20px
@@ -274,17 +273,12 @@ main
     align-items: flex-start
     margin-bottom: 20px
   &-title
+    text-align: center
+  &-title,&-unit-title
     font-size: 18px
     margin: 0 auto 20px
-    text-align: center
   &-photo
     position: relative
-    &-img
-      +wh(100%,200px)
-      border: 1px solid $blue
-      img
-        +wh(100%)
-        object-fit: cover
     &-corner
       position: absolute
       top: -10px
@@ -297,10 +291,16 @@ main
       top: 5px
     &-span
       color: $white
-  &-desc
-    &-text
+  &-photo-img,&-unit-photo
+      +wh(100%,200px)
+      border: 1px solid $blue
+      img
+        +wh(100%)
+        object-fit: cover
+  &-desc-text,&-unit-desc
       max-height: 84px
       overflow: hidden
+  &-desc
     &-button
       margin: 0 auto
     &,&-button
@@ -309,7 +309,86 @@ main
     +wh(100%,1px)
     background-color: $blue
     margin-top: 20px
+  &-filter
+    +w(100%)
+    margin-top: 20px
+    border-top: 1px solid $gray
+    border-bottom: 1px solid $gray
+    padding: 20px 0
+    &-row
+      display: flex
+      justify-content: space-between
+      align-items: center
+    &-title
+      font-family: $f_bold
+  &-page
+    padding: 0 0 20px
+  &-unit
+    padding: 20px 0 0
+    &-date
+      font-family: $f_bold
+    &-photo
+      margin: 10px 0
+    &-link
+      display: flex
+      align-items: center
+      justify-content: center
+      margin-top: 20px
+      &:before,&:after
+        +wh(20%,1px)
+        content: ''
+        display: block
+        background-color: $blue
+      a
+        margin: 0 10px
+        color: $blue
+    &-hidden
+      height: 0
+      overflow: hidden
+      transition: .35s ease
+      &-text
+        margin-top: 20px
+        text-align: justify
+      &-photo
+        +w(100%)
+        margin-top: 15px
+        img
+          +wh(100%)
+          object-fit: cover
+        &-left,&-right
+          img
+            max-width: 50%
+            border: 1px solid $blue
+        &-left
+          img
+            float: left
+            margin-right: 10px
+        &-right
+          img
+            float: right
+            margin-left: 10px
+    &-show
+      transition: .35s ease
+      overflow: hidden
 
+.pagination
+  +w(100%)
+  display: flex
+  align-items: center
+  justify-content: space-between
+  padding: 20px 50px 0
+  border-top: 1px solid $gray
+  &-input
+    +w(30px)
+    border: 1px solid $gray
+    border-radius: 5px
+    text-align: center
+    padding: 5px 0
+  &-link
+    +w(30px)
+    text-align: center
+    padding: 5px 0
+    font-size: 20px
 
 .sertificates
   &-list
@@ -358,7 +437,6 @@ main
     +wh(100%,250px)
     border: none
     margin-top: 20px
-
 
 .footer
   background-color: $blue
