@@ -276,7 +276,8 @@ main
     text-align: center
   &-title,&-unit-title
     font-size: 18px
-    margin: 0 auto 20px
+    margin: 0 auto
+    padding-bottom: 20px
   &-photo
     position: relative
     &-corner
@@ -333,7 +334,7 @@ main
       display: flex
       align-items: center
       justify-content: center
-      margin-top: 20px
+      padding-top: 20px
       &:before,&:after
         +wh(20%,1px)
         content: ''
@@ -347,11 +348,11 @@ main
       overflow: hidden
       transition: .35s ease
       &-text
-        margin-top: 20px
+        padding-top: 20px
         text-align: justify
       &-photo
         +w(100%)
-        margin-top: 15px
+        padding-top: 20px
         img
           +wh(100%)
           object-fit: cover

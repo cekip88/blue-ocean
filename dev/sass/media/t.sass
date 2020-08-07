@@ -204,7 +204,7 @@ main
   &-body
     display: flex
   &-title,&-unit-title
-    margin: 0 0 20px
+    margin: 0
   &-photo
     +w(200px)
     display: block
@@ -246,6 +246,24 @@ main
     justify-content: space-between
     &-title
       margin-right: 20px
+  &-unit
+    &-photo
+      +w(200px)
+    &-hidden
+      &-photo
+        &-right,&-left
+          &:after
+            clear: both
+            content: ''
+            display: table
+          img
+            width: 30%
+        &-right
+          img
+            margin-left: 20px
+        &-left
+          img
+            margin-right: 20px
 
 .pagination
   padding: 20px 240px 0
