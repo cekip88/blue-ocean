@@ -5,7 +5,8 @@ class Site {
         this.headNavProductButton = document.querySelector ('.head-nav-product');
         this.sertButton = document.querySelectorAll ('.sertificates-link');
         this.sertClose = document.querySelectorAll ('.sertificates-full-close');
-        this.articlesArray = [{
+        this.articlesArray = [
+            {
             title: 'Полипропиленовые трубы признак качества' ,
             date: '20.02.2020' ,
             titlePhoto: 'pipe.jpg' ,
@@ -22,6 +23,25 @@ class Site {
                 photo: 'pipe.jpg'
             } , {
                 text: 'В век современных технологий эра стальных труб подошла к концу, потому как стальные трубы не так долговечны, со временем они начинают ржаветь и в воду попадают продукты разложения металла. Полипропиленовые трубы лишены этого минуса. Так же полипропилен намного легче, гибче и проще в монтаже. Ну и конечно же внешний вид, гладкие белые ровные трубы, их легко вплести практически в любой дизайн...'
+            }]
+        },
+            {
+            title: 'Водяной теплый пол Blue Ocean' ,
+            date: '10.08.2020' ,
+            titlePhoto: 't-pol.jpg' ,
+            titleParagrath: 'Водяной тёплый пол - это система обогрева помещений, в которой теплоноситель циркулирует по замкнутому контуру трубы, находящемуся в бетонной стяжке. Рекомендуем использовать его в помещениях с автономной системой отопления. При этом максимальную экономию Вы получите при установке в систему отопления твердотопливного или газового котла.',
+            paragraths: [{
+                text: 'Водяной тёплый пол - это система обогрева помещений, в которой теплоноситель циркулирует по замкнутому контуру трубы, находящемуся в бетонной стяжке. Рекомендуем использовать его в помещениях с автономной системой отопления. При этом максимальную экономию Вы получите при установке в систему отопления твердотопливного или газового котла.' ,
+                photo: 't-pol.jpg' ,
+                photoClass: 'articles-unit-hidden-photo-right'
+            } , {
+                text: 'Водяной тёплый пол - это система обогрева помещений, в которой теплоноситель циркулирует по замкнутому контуру трубы, находящемуся в бетонной стяжке. Рекомендуем использовать его в помещениях с автономной системой отопления. При этом максимальную экономию Вы получите при установке в систему отопления твердотопливного или газового котла.',
+                photo: 't-pol.jpg',
+                photoClass: 'articles-unit-hidden-photo-left'
+            } , {
+                photo: 't-pol.jpg'
+            } , {
+                text: 'Водяной тёплый пол - это система обогрева помещений, в которой теплоноситель циркулирует по замкнутому контуру трубы, находящемуся в бетонной стяжке. Рекомендуем использовать его в помещениях с автономной системой отопления. При этом максимальную экономию Вы получите при установке в систему отопления твердотопливного или газового котла.'
             }]
         }];
     }
@@ -85,85 +105,84 @@ class Site {
         cont.classList.toggle('sertificates-full-show');
     }
 
-    // Создает скелет статьи
-    createArticleTemplate(){
-
-        let articleLi = document.createElement('LI'),
-            articleTitle = document.createElement('H5'),
-            articleDate = document.createElement('DIV'),
-            articleBody = document.createElement('DIV'),
-            articleShow = document.createElement('DIV'),
-            articlePhoto = document.createElement('DIV'),
-            articleTitlePar = document.createElement('P'),
-            articleLinkCont = document.createElement('DIV'),
-            articleLink = document.createElement('A'),
-            articleHidden = document.createElement('DIV');
-
-        articleLi.className = 'articles-unit';
-        articleTitle.className = 'articles-unit-title';
-        articleDate.className = 'articles-unit-date';
-        articleBody.className = 'articles-unit-body';
-        articleShow.className = 'articles-unit-show';
-        articlePhoto.className = 'articles-unit-photo';
-        articleTitlePar.className = 'articles-unit-desc';
-        articleLinkCont.className = 'articles-unit-link';
-        articleHidden.className = 'articles-unit-hidden';
-        articleLink.setAttribute('href','#');
-        articleLink.innerText = 'Показать полностью';
-
-        articleLi.append(articleTitle);
-        articleLi.append(articleDate);
-        articleLi.append(articleBody);
-        articleBody.append(articleShow);
-        articleBody.append(articleLinkCont);
-        articleBody.append(articleHidden);
-        articleShow.append(articlePhoto);
-        articleShow.append(articleTitlePar);
-        articleLinkCont.append(articleLink);
-
-        return articleLi;
+    // Создает HTML элемент
+    createHtmlElem(tagName,dataAttr = null,childs = null,append = true){
+        let elem = document.createElement(`${tagName}`);
+        if(tagName == 'IMG')elem.setAttribute('alt',' ');
+        if(tagName == 'A') elem.setAttribute('href','#');
+        if(dataAttr) {
+            for (let key in dataAttr){
+                if(key == 'classList') elem.classList.add(`${dataAttr[key]}`);
+                else if(key == 'className') elem.className = dataAttr[key];
+                else if(key == 'innerText') elem.innerText = dataAttr[key];
+                else if(key == 'textContent') elem.textContent = dataAttr[key];
+                else if(key == 'innerHtml') elem.innerHTML = dataAttr[key];
+                else elem.setAttribute(`${key}`,`${dataAttr[key]}`)
+            }
+        }
+        if(childs){
+            childs.forEach(function (el) {
+                if(append) elem.append(el);
+                else elem.prepend(el)
+            })
+        }
+        return elem;
     }
+
     // Создает статью по шаблону
-    createArticle(){
+    createArticle(el){
         const _ = this;
-        if(document.querySelector('.articles')){
+        if(!el.titlePhoto) el.titlePhoto = 'no-photo.jpg';
+        let temp = _.createHtmlElem('LI',{class:'articles-unit'},[
+            _.createHtmlElem('H5',{class:'articles-unit-title',innerText:`${el.title}`}),
+            _.createHtmlElem('DIV',{class:'articles-unit-date',innerText:`${el.date}`}),
+            _.createHtmlElem('DIV',{class:'articles-unit-body'},[
+                _.createHtmlElem('DIV',{class:'articles-unit-show'},[
+                    _.createHtmlElem('DIV',{class:'articles-unit-photo'},[
+                        _.createHtmlElem('IMG',{src:`img/${el.titlePhoto}`})
+                    ]),
+                    _.createHtmlElem('DIV',{class:'articles-unit-desc-cont'},[
+                        _.createHtmlElem('P',{class:'articles-unit-desc',innerText:`${el.titleParagrath}`}),
+                        _.createHtmlElem('DIV',{class: 'articles-unit-link articles-unit-link-blue'},[
+                            _.createHtmlElem('A',{innerText:'Показать полностью'})
+                        ]),
+                    ])
+                ]),
+                _.createHtmlElem('DIV',{class:'articles-unit-hidden'},[
+                    _.createHtmlElem('DIV',{class: 'articles-unit-link'},[
+                        _.createHtmlElem('A',{innerText:'Свернуть статью'})
+                    ])
+                ])
+            ]),
+        ]);
+        for(let i = 0; i < el.paragraths.length; i++) {
+            let parag,
+                elem = el.paragraths[(el.paragraths.length - 1) - i];
+            if(elem.text){
+                parag = _.createHtmlElem('P', {classList:`articles-unit-hidden-text`, innerText:`${elem.text}`});
+                if(elem.photo) {
+                    parag.prepend(_.createHtmlElem('IMG',{src:`img/${elem.photo}`}));
+                    parag.classList.add(`${elem.photoClass}`)
+                }
+            } else {
+                parag = _.createHtmlElem('DIV',{class: 'articles-unit-hidden-photo'},[
+                    _.createHtmlElem('IMG',{src:`img/${elem.photo}`})
+                ]);
+            }
+            temp.querySelector('.articles-unit-hidden').prepend(parag);
+        }
+        return temp;
+    }
+    // Создает все полученные статьи
+    createArticles(){
+        const _ = this;
+        if(document.querySelector('.articles-page')){
             _.articlesArray.forEach(function (el) {
-                let temp = _.createArticleTemplate();
-                temp.querySelector('.articles-unit-title').innerText = el.title;
-                temp.querySelector('.articles-unit-date').innerText = el.date;
-                temp.querySelector('.articles-unit-photo').innerHTML = `<img src="img/${el.titlePhoto}">`;
-                temp.querySelector('.articles-unit-desc').innerText = `${el.titleParagrath}`;
-                el.paragraths.forEach(function (el) {
-                    let parag;
-                    if(el.text){
-                        parag = document.createElement('P');
-                        parag.className = 'articles-unit-hidden-text';
-                        if(el.photo) {
-                            el.text = `<img src = 'img/${el.photo}'>` + el.text;
-                        }
-                        parag.innerHTML = `${el.text}`;
-                        if(el.photoClass) parag.classList.add(`${el.photoClass}`)
-                    } else {
-                        parag = document.createElement('DIV');
-                        parag.className = 'articles-unit-hidden-photo';
-                        let image = document.createElement('IMG');
-                        image.setAttribute('src',`img/${el.photo}`);
-                        parag.append(image);
-                    }
-                    temp.querySelector('.articles-unit-hidden').append(parag);
-                });
-                let closeLinkCont = document.createElement('DIV');
-                let closeLink = document.createElement('A');
-                closeLinkCont.className = 'articles-unit-link';
-                closeLink.textContent = 'Свернуть статью';
-                closeLink.setAttribute('href','#');
-                closeLinkCont.append(closeLink);
-                temp.querySelector('.articles-unit-hidden').append(closeLinkCont);
+                let temp = _.createArticle(el);
                 document.querySelector('.articles-page').append(temp);
             })
         }
     };
-
     // Считывает высоты скрытой и показанной частей статьи и записывает ее в аттрибут
     articlesGetHeight(){
         let articles = document.querySelectorAll('.articles-unit-hidden');
@@ -225,7 +244,7 @@ class Site {
         if(hidden.offsetHeight) articleShowed = true;
 
         if(!articleShowed) {
-            show.setAttribute('style','height:0px');
+            show.setAttribute('style','height:0px;padding-top:0');
             article.querySelector('.articles-unit-link').setAttribute('style','display:none')
         } else {
             show.setAttribute('style',`height:${showHeight}px`);
@@ -239,7 +258,7 @@ class Site {
         setTimeout(switchShowHide,350);
     }
 
-    //Метод который вешает обработчики на кнопки
+    //Метод который вешает обработчики
     eHandler(){
         const _ = this;
         // Вешает обработчик на кнопки показа статьи
@@ -254,23 +273,23 @@ class Site {
         }
 
         // Вешает обработчик на кнопку бургера
-        if(this.burgerButton){
-            this.burgerButton.addEventListener('click',(e) => {
+        if(_.burgerButton){
+            _.burgerButton.addEventListener('click',(e) => {
                 e.preventDefault();
                 _.burgerClick()
             });
         }
         // Вешает обработчики на кнопку меню Продукты
-        if(this.headNavProductButton){
-            this.headNavProductButton.addEventListener('click', (e) => {
+        if(_.headNavProductButton){
+            _.headNavProductButton.addEventListener('click', (e) => {
                 e.preventDefault();
                 _.productClick()
             });
         }
         // Вешает обработчики на сертификаты
-        if(this.sertButton){
-            [...this.sertButton, ...this.sertClose].forEach((el) => {
-                el.addEventListener('click',(e) => {
+        if(_.sertButton){
+            [..._.sertButton, ..._.sertClose].forEach(function(el){
+                el.addEventListener('click',function(e){
                     e.preventDefault();
                     _.sertClick(e);
                 })
@@ -281,12 +300,17 @@ class Site {
             _.scrl();
         },{passive:true});
         _.scrl();
+        // Добавляет действия при изменении ширины экрана
+        window.addEventListener('resize',() => {
+            _.articlesGetHeight()
+        })
     }
+
     //Метод который запускает нужные методы
     async init(){
         const _ = this;
         await _.sertRemoveAttr();
-        await _.createArticle();
+        await _.createArticles();
         await _.articlesGetHeight();
         await _.eHandler();
     }

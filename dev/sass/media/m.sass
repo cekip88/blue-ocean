@@ -267,49 +267,6 @@ main
       display: block
 
 .articles
-  &-list
-    margin-top: 20px
-  &-item
-    align-items: flex-start
-    margin-bottom: 20px
-  &-title
-    text-align: center
-  &-title,&-unit-title
-    font-size: 18px
-    margin: 0 auto
-    padding-bottom: 20px
-  &-photo
-    position: relative
-    &-corner
-      position: absolute
-      top: -10px
-      right: -5px
-    &-date
-      position: absolute
-      margin: 0 auto
-      left: 0
-      right: 0
-      top: 5px
-    &-span
-      color: $white
-  &-photo-img,&-unit-photo
-      +wh(100%,200px)
-      border: 1px solid $blue
-      img
-        +wh(100%)
-        object-fit: cover
-  &-desc-text,&-unit-desc
-      max-height: 84px
-      overflow: hidden
-  &-desc
-    &-button
-      margin: 0 auto
-    &,&-button
-      margin-top: 15px
-  &-line
-    +wh(100%,1px)
-    background-color: $blue
-    margin-top: 20px
   &-filter
     +w(100%)
     margin-top: 20px
@@ -326,10 +283,25 @@ main
     padding: 0 0 20px
   &-unit
     padding: 20px 0 0
+    &:after
+      display: table
+      content: ''
+      +wh(100%,1px)
+      background-color: $blue
+      margin-top: 20px
+    &-title
+      font-size: 18px
+      margin: 0 auto
+      padding-bottom: 20px
     &-date
       font-family: $f_bold
     &-photo
+      +wh(100%,150px)
       margin: 10px 0
+      border: 1px solid $blue
+      img
+        +wh(100%)
+        object-fit: cover
     &-link
       display: flex
       align-items: center
@@ -378,7 +350,6 @@ main
   align-items: center
   justify-content: space-between
   padding: 20px 50px 0
-  border-top: 1px solid $gray
   &-input
     +w(30px)
     border: 1px solid $gray

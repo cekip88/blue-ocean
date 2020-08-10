@@ -147,26 +147,22 @@ main
       margin: 50px auto 20px
 
 .articles
-  &-list
-    margin-top: 50px
-  &-line
-    margin-top: 35px
-  &-title,&-unit-title
-    font-size: 24px
-    padding-bottom: 25px
-  &-desc
-    &-text
-      max-height: 101px
-  &-photo
-    margin-right: 50px
-    &-date
-      top: 3px
   &-filter
     justify-content: flex-start
     &-row
       &:nth-child(2)
         margin-left: auto
         margin-right: 50px
+  &-unit
+    &-title
+      font-size: 36px
+      padding-bottom: 25px
+    &-photo
+      +wh(200px)
+      flex: 0 0 200px
+    &-desc
+      padding-top: 20px
+      height: 122px
 
 .pagination
   padding: 20px 450px 0

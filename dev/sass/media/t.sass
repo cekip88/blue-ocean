@@ -201,45 +201,6 @@ main
       padding: 20px 50px
 
 .articles
-  &-body
-    display: flex
-  &-title,&-unit-title
-    margin: 0
-  &-photo
-    +w(200px)
-    display: block
-    position: relative
-    flex: 0 0 200px
-    margin-right: 20px
-    &-img
-      +wh(100%,200px)
-      border: 1px solid $blue
-      img
-        +wh(100%)
-        object-fit: cover
-    &-corner
-      position: absolute
-      top: -10px
-      right: -5px
-    &-date
-      position: absolute
-      margin: 0 auto
-      left: 0
-      right: 0
-      top: 5px
-    &-span
-      color: $white
-  &-desc
-    display: flex
-    flex-direction: column
-    justify-content: space-between
-    padding: 20px 0
-    margin-top: 0
-    &-text
-      max-height: 96px
-      overflow: hidden
-    &-button
-      margin: 10px 0 0
   &-filter
     display: flex
     align-items: center
@@ -247,8 +208,36 @@ main
     &-title
       margin-right: 20px
   &-unit
+    &:after
+      display: table
+      content: ''
+      +wh(100%,1px)
+      background-color: $blue
+      margin-top: 20px
+    &-title
+      font-size: 24px
+      margin: 0
     &-photo
-      +w(200px)
+      +w(150px)
+      flex: 0 0 150px
+      margin: 0 20px 0 0
+    &-desc
+      height: 93px
+      overflow: hidden
+    &-link
+      &-blue
+        justify-content: flex-start
+        a
+          color: $white
+          padding: 10px 30px
+          background-color: $blue
+          border-radius: 20px
+          margin: 0
+        &:before,&:after
+          display: none
+    &-show
+      display: flex
+      padding-top: 20px
     &-hidden
       &-photo
         &-right,&-left
