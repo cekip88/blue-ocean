@@ -13,14 +13,14 @@ class Site {
             titleParagrath: 'В век современных технологий эра стальных труб подошла к концу, потому как стальные трубы не так долговечны, со временем они начинают ржаветь и в воду попадают продукты разложения металла. Полипропиленовые трубы лишены этого минуса. Так же полипропилен намного легче, гибче и проще в монтаже. Ну и конечно же внешний вид, гладкие белые ровные трубы, их легко вплести практически в любой дизайн...',
             paragraths: [{
                 text: 'В век современных технологий эра стальных труб подошла к концу, потому как стальные трубы не так долговечны, со временем они начинают ржаветь и в воду попадают продукты разложения металла. Полипропиленовые трубы лишены этого минуса. Так же полипропилен намного легче, гибче и проще в монтаже. Ну и конечно же внешний вид, гладкие белые ровные трубы, их легко вплести практически в любой дизайн...' ,
-                photo: 'pipe.jpg' ,
+                photo: 'slide-1.jpg' ,
                 photoClass: 'articles-unit-hidden-photo-right'
             } , {
                 text: 'В век современных технологий эра стальных труб подошла к концу, потому как стальные трубы не так долговечны, со временем они начинают ржаветь и в воду попадают продукты разложения металла. Полипропиленовые трубы лишены этого минуса. Так же полипропилен намного легче, гибче и проще в монтаже. Ну и конечно же внешний вид, гладкие белые ровные трубы, их легко вплести практически в любой дизайн...',
-                photo: 'pipe.jpg',
+                photo: 'slide-1.jpg',
                 photoClass: 'articles-unit-hidden-photo-left'
             } , {
-                photo: 'pipe.jpg'
+                photo: 'slide-1.jpg'
             } , {
                 text: 'В век современных технологий эра стальных труб подошла к концу, потому как стальные трубы не так долговечны, со временем они начинают ржаветь и в воду попадают продукты разложения металла. Полипропиленовые трубы лишены этого минуса. Так же полипропилен намного легче, гибче и проще в монтаже. Ну и конечно же внешний вид, гладкие белые ровные трубы, их легко вплести практически в любой дизайн...'
             }]
@@ -43,7 +43,45 @@ class Site {
             } , {
                 text: 'Водяной тёплый пол - это система обогрева помещений, в которой теплоноситель циркулирует по замкнутому контуру трубы, находящемуся в бетонной стяжке. Рекомендуем использовать его в помещениях с автономной системой отопления. При этом максимальную экономию Вы получите при установке в систему отопления твердотопливного или газового котла.'
             }]
-        }];
+        },
+            {
+                title: 'Полипропиленовые трубы признак качества' ,
+                date: '20.02.2020' ,
+                titlePhoto: 'pipe.jpg' ,
+                titleParagrath: 'В век современных технологий эра стальных труб подошла к концу, потому как стальные трубы не так долговечны, со временем они начинают ржаветь и в воду попадают продукты разложения металла. Полипропиленовые трубы лишены этого минуса. Так же полипропилен намного легче, гибче и проще в монтаже. Ну и конечно же внешний вид, гладкие белые ровные трубы, их легко вплести практически в любой дизайн...',
+                paragraths: [{
+                    text: 'В век современных технологий эра стальных труб подошла к концу, потому как стальные трубы не так долговечны, со временем они начинают ржаветь и в воду попадают продукты разложения металла. Полипропиленовые трубы лишены этого минуса. Так же полипропилен намного легче, гибче и проще в монтаже. Ну и конечно же внешний вид, гладкие белые ровные трубы, их легко вплести практически в любой дизайн...' ,
+                    photo: 'slide-1.jpg' ,
+                    photoClass: 'articles-unit-hidden-photo-right'
+                } , {
+                    text: 'В век современных технологий эра стальных труб подошла к концу, потому как стальные трубы не так долговечны, со временем они начинают ржаветь и в воду попадают продукты разложения металла. Полипропиленовые трубы лишены этого минуса. Так же полипропилен намного легче, гибче и проще в монтаже. Ну и конечно же внешний вид, гладкие белые ровные трубы, их легко вплести практически в любой дизайн...',
+                    photo: 'slide-1.jpg',
+                    photoClass: 'articles-unit-hidden-photo-left'
+                } , {
+                    photo: 'slide-1.jpg'
+                } , {
+                    text: 'В век современных технологий эра стальных труб подошла к концу, потому как стальные трубы не так долговечны, со временем они начинают ржаветь и в воду попадают продукты разложения металла. Полипропиленовые трубы лишены этого минуса. Так же полипропилен намного легче, гибче и проще в монтаже. Ну и конечно же внешний вид, гладкие белые ровные трубы, их легко вплести практически в любой дизайн...'
+                }]
+            }];
+        this.firstArticle = {
+            title: 'Полипропиленовые трубы признак качества' ,
+            date: '20.02.2020' ,
+            titlePhoto: 'pipe.jpg' ,
+            titleParagrath: 'В век современных технологий эра стальных труб подошла к концу, потому как стальные трубы не так долговечны, со временем они начинают ржаветь и в воду попадают продукты разложения металла. Полипропиленовые трубы лишены этого минуса. Так же полипропилен намного легче, гибче и проще в монтаже. Ну и конечно же внешний вид, гладкие белые ровные трубы, их легко вплести практически в любой дизайн...',
+            paragraths: [{
+                text: 'В век современных технологий эра стальных труб подошла к концу, потому как стальные трубы не так долговечны, со временем они начинают ржаветь и в воду попадают продукты разложения металла. Полипропиленовые трубы лишены этого минуса. Так же полипропилен намного легче, гибче и проще в монтаже. Ну и конечно же внешний вид, гладкие белые ровные трубы, их легко вплести практически в любой дизайн...' ,
+                photo: 'slide-1.jpg' ,
+                photoClass: 'articles-unit-hidden-photo-right'
+            } , {
+                text: 'В век современных технологий эра стальных труб подошла к концу, потому как стальные трубы не так долговечны, со временем они начинают ржаветь и в воду попадают продукты разложения металла. Полипропиленовые трубы лишены этого минуса. Так же полипропилен намного легче, гибче и проще в монтаже. Ну и конечно же внешний вид, гладкие белые ровные трубы, их легко вплести практически в любой дизайн...',
+                photo: 'slide-1.jpg',
+                photoClass: 'articles-unit-hidden-photo-left'
+            } , {
+                photo: 'slide-1.jpg'
+            } , {
+                text: 'В век современных технологий эра стальных труб подошла к концу, потому как стальные трубы не так долговечны, со временем они начинают ржаветь и в воду попадают продукты разложения металла. Полипропиленовые трубы лишены этого минуса. Так же полипропилен намного легче, гибче и проще в монтаже. Ну и конечно же внешний вид, гладкие белые ровные трубы, их легко вплести практически в любой дизайн...'
+            }]
+        }
     }
     // При скролле добавляет или убирает класс scrolled хедеру
     scrl(){
@@ -76,6 +114,22 @@ class Site {
             if(!window.pageYOffset){
                 _.header.classList.remove('head-scrolled')
             }
+        }
+    }
+
+    // Выделяет пункт меню соответствующий странице
+    showActivePage(){
+        let curPage = document.location.href;
+        curPage = curPage.split('/');
+        if(curPage[curPage.length - 1] === 'article.html') {
+            let page = document.querySelector('.head-nav-article');
+            page.classList.add('head-nav-active');
+        } else if(curPage[curPage.length - 1] === 'products.html') {
+            let page = document.querySelector('.head-nav-product');
+            page.classList.add('head-nav-active');
+        } else {
+            let page = document.querySelector('.head-nav-main');
+            page.classList.add('head-nav-active');
         }
     }
 
@@ -183,36 +237,15 @@ class Site {
             })
         }
     };
-    // Считывает высоты скрытой и показанной частей статьи и записывает ее в аттрибут
-    articlesGetHeight(){
-        let articles = document.querySelectorAll('.articles-unit-hidden');
-        if(articles){
-            let workWithTimeDelation = function () {
-                articles.forEach(function (item) {
-                    let itemChildren = item.children;
-                    let itemHeight = 0;
-                    for(let i = 0; i < itemChildren.length; i++){
-                        itemHeight += itemChildren[i].offsetHeight;
-                    }
-                    item.setAttribute('data-fullHeight',`${itemHeight}`);
-                });
-                let articlesShow = document.querySelectorAll('.articles-unit-show');
-                articlesShow.forEach(function (item) {
-                    item.setAttribute('data-fullHeight',`${item.offsetHeight}`);
-                    item.setAttribute('style',`height:${item.offsetHeight}px`)
-                })
-            };
-            setTimeout(workWithTimeDelation,500)
-        }
-    }
+
     // Метод плавного скролла
     slowScrollTo(start,finish){
-        finish -= 50;
+        finish -= 60;
 
         let step = (start > finish) ? start - finish : finish - start,
             scrTo = start;
 
-        step /= 100;
+        step /= 10;
 
         let func = function(){
 
@@ -228,34 +261,39 @@ class Site {
         let interval = setInterval(func, 1);
     }
     // Метод который разворачивает статью
-    articlesSwitchShow(e){
+    async articlesSwitchShow(e){
         const _ = this;
         let article = e.target;
-        while(article.className != 'articles-unit') article = article.parentElement;
+        while(!article.classList.contains('articles-unit')) article = article.parentNode;
+        let showed = false;
+        if(article.classList.contains('articles-unit-active')) showed = true;
+        let articles = document.querySelectorAll('.articles-unit');
+        articles.forEach(function (el) {
+            if(el.classList.contains('articles-unit-active')) el.classList.remove('articles-unit-active');
+        });
+        if(showed === false) article.classList.add('articles-unit-active');
 
         _.slowScrollTo(window.scrollY,article.offsetTop);
+    }
+    // Заполняет фильтр статей значениями по умолчанию
+    setArticlesFilter(){
+        const _ = this;
+        let filterCont = document.querySelector('.articles-filter');
+        if(filterCont){
+            let date = new Date();
+            let day = date.getDate();
+            let month = date.getMonth() + 1;
+            if(month < 10) month = '0' + month;
+            let year = date.getFullYear();
+            let today = `${year}-${month}-${day}`;
+            let filterFinish = filterCont.querySelector('.articles-filter-finish');
+            filterFinish.value = today;
 
-        let show = article.querySelector('.articles-unit-show'),
-            hidden = article.querySelector('.articles-unit-hidden'),
-            hiddenHeight = hidden.getAttribute('data-fullHeight'),
-            showHeight = show.getAttribute('data-fullHeight');
-
-        let articleShowed = false;
-        if(hidden.offsetHeight) articleShowed = true;
-
-        if(!articleShowed) {
-            show.setAttribute('style','height:0px;padding-top:0');
-            article.querySelector('.articles-unit-link').setAttribute('style','display:none')
-        } else {
-            show.setAttribute('style',`height:${showHeight}px`);
-            article.querySelector('.articles-unit-link').removeAttribute('style');
+            let firstDate = _.firstArticle.date.split('.');
+            firstDate = firstDate[2] + '-' + firstDate[1] + '-' + firstDate[0];
+            let filterStart = filterCont.querySelector('.articles-filter-start');
+            filterStart.value = firstDate;
         }
-
-        let switchShowHide = function(){
-            if(!articleShowed) hidden.setAttribute('style',`height:${hiddenHeight}px`);
-            else hidden.setAttribute('style',`height:0px`);
-        };
-        setTimeout(switchShowHide,350);
     }
 
     //Метод который вешает обработчики
@@ -299,20 +337,17 @@ class Site {
         window.addEventListener('scroll', () => {
             _.scrl();
         },{passive:true});
-        _.scrl();
-        // Добавляет действия при изменении ширины экрана
-        window.addEventListener('resize',() => {
-            _.articlesGetHeight()
-        })
     }
 
     //Метод который запускает нужные методы
-    async init(){
+    init(){
         const _ = this;
-        await _.sertRemoveAttr();
-        await _.createArticles();
-        await _.articlesGetHeight();
-        await _.eHandler();
+        _.scrl();
+        _.showActivePage();
+        _.sertRemoveAttr();
+        _.setArticlesFilter();
+        _.createArticles();
+        _.eHandler();
     }
 }
 

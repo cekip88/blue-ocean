@@ -316,9 +316,7 @@ main
         margin: 0 10px
         color: $blue
     &-hidden
-      height: 0
-      overflow: hidden
-      transition: .35s ease
+      display: none
       &-text
         padding-top: 20px
         text-align: justify
@@ -331,7 +329,6 @@ main
         &-left,&-right
           img
             max-width: 50%
-            border: 1px solid $blue
         &-left
           img
             float: left
@@ -340,9 +337,11 @@ main
           img
             float: right
             margin-left: 10px
-    &-show
-      transition: .35s ease
-      overflow: hidden
+    &-active
+      .articles-unit-hidden
+        display: block
+      .articles-unit-show
+        display: none
 
 .pagination
   +w(100%)
