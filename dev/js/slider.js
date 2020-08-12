@@ -1,9 +1,6 @@
 class Slider{
     constructor() {
-        this.slider = {
-            toShow : 1,
-            toScroll : 1
-        }
+
     }
 
     // Создает HTML элемент
@@ -30,61 +27,26 @@ class Slider{
         return elem;
     }
 
-    appendSlider(sliderData){
+    // Подготавливает контейнеры слайдов
+    createSlider(data){
         const _ = this;
-        _.slider.class = sliderData.container;
-        _.slider.cont = document.querySelector(`.${sliderData.container}`);
-        _.slider.slides = _.slider.cont.children;
-        if(sliderData.toShow) _.slider.toShow = sliderData.toShow;
-        if(sliderData.toScroll) _.slider.toScroll = sliderData.toScroll;
+        _.class = data.class;
+        _.container = document.querySelector(`.${_.class}`);
 
     }
 
-    calculateSlideWidth(){
-        const _ = this;
-        if(typeof _.slider.toShow == 'number'){
-            _.slider.slideWidth = (100 - (_.slider.toShow - 1))  / _.slider.toShow + '%';
-        }
-    }
-
-    createSlider(){
-        const _ = this;
-        let newSlidesCont = _.createHtmlElem('DIV');
-        let slidesLenght = _.slider.slides.length;
-        for (let i = 0; i < slidesLenght; i++) {
-            _.slider.slides[0].setAttribute('data-slide-number',i);
-            newSlidesCont.append(_.slider.slides[0])
-        }
-        _.slider.cont.append(newSlidesCont);
-        _.slider.cont.prepend(_.createHtmlElem('DIV'));
-        _.slider.cont.parentElement.prepend(_.createHtmlElem('STYLE',{
-            textContent : `
-                .${_.slider.class}>div:first-child{
-                    width:100%;
-                    display:flex;
-                    justify-content:space-between;
-                }
-                .${_.slider.class}>div:last-child{
-                    display:none;
-                }`
-        }));
-
-    }
-    init(sliderData){
-        const _ = this;
-        if(document.querySelector(`.${sliderData.container}`)){
-            _.appendSlider(sliderData);
-            _.calculateSlideWidth();
-            _.createSlider();
-            console.log(_.slider)
-        }
-    }
 }
 
-let sert = new Slider();
+/*let sert = new Slider();
 sert.init({
-    container: 'sertificates-list',
-    toShow: 4,
-    toScroll: 1
-});
+    class : 'sertificates-list',
+    data : {
+        320 : {
+            toShow: 4,
+            toScroll: 1,
+            arrows: true,
+            dots: false
+        }
+    }
+});*/
 

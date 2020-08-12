@@ -365,7 +365,6 @@ main
   &-list
     margin-top: 20px
   &-link
-    +w(90px)
     display: block
   &-full
     +wh(100%,100vh)
@@ -402,6 +401,28 @@ main
       transform: scale(1)
       opacity: 1
       visibility: visible
+    &-row
+      display: flex
+      align-items: center
+      justify-content: center
+    &-img
+      +w(240px)
+      flex: 0 0 240px
+      margin: 0 5px
+    &-next,&-prev
+      padding: 10px 5px
+      background-color: $blue
+      span
+        +wh(20px)
+        display: block
+        border-bottom: 1px solid $black
+        border-right: 1px solid $black
+    &-next
+      span
+        transform: rotate(-45deg)
+    &-prev
+      span
+        transform: rotate(135deg)
 
 .map
   iframe
