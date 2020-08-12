@@ -178,10 +178,20 @@ main
   &-list
     margin-top: 50px
   &-full
+    padding: 50px 0
     &-close
       transition: .35s ease
+      &:before,&:after
+        +wh(30px,3px)
+      &:before
+        transform: rotate(45deg) translateY(2px)
       &:hover
         transform: rotate(180deg)
+    &-img
+      +w(500px)
+      margin: 0 50px
+    &-change
+      padding: 20px
 
 .map
   margin-bottom: -20px

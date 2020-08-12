@@ -4,9 +4,9 @@ class Slider{
     }
 
     // Создает HTML элемент
-    createHtmlElem(tagName,dataAttr = null,childs = null,append = true){
+    createHtmlElem(tagName,dataAttr = null, childs = null, append = true){
         let elem = document.createElement(`${tagName}`);
-        if(tagName == 'IMG')elem.setAttribute('alt',' ');
+        if(tagName == 'IMG') elem.setAttribute('alt',' ');
         if(tagName == 'A') elem.setAttribute('href','#');
         if(dataAttr) {
             for (let key in dataAttr){
@@ -32,7 +32,9 @@ class Slider{
         const _ = this;
         _.class = data.class;
         _.container = document.querySelector(`.${_.class}`);
+        for(key of data.data){
 
+        }
     }
 
 }

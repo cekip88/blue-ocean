@@ -158,6 +158,35 @@ class Site {
         let cont = clickTarget.querySelector('.sertificates-full');
         cont.classList.toggle('sertificates-full-show');
     }
+    // Листает сертификат
+    sertChange(e){
+        let clickTarget = e.target,
+            clickButton;
+        while(clickTarget.className != 'sertificates-item'){
+            if(clickTarget.classList.contains('sertificates-full-change')){
+                clickButton = clickTarget;
+            }
+            clickTarget = clickTarget.parentNode;
+        }
+        let cont = clickTarget.querySelector('.sertificates-full');
+        cont.classList.remove('sertificates-full-show');
+
+        let neighbour = clickTarget.nextElementSibling;
+        if(clickButton.classList.contains('sertificates-full-prev')){
+            neighbour = clickTarget.previousElementSibling;
+        }
+
+        if(!neighbour){
+            let elems = document.querySelectorAll('.sertificates-item');
+            if(clickTarget == elems[elems.length - 1]){
+                neighbour = elems[0];
+            } else {
+                neighbour = elems[elems.length - 1]
+            }
+        }
+
+        neighbour.querySelector('.sertificates-full').classList.add('sertificates-full-show')
+    }
 
     // Создает HTML элемент
     createHtmlElem(tagName,dataAttr = null,childs = null,append = true){
@@ -333,6 +362,16 @@ class Site {
                 })
             });
         }
+        let sertChangeButton = document.querySelectorAll ('.sertificates-full-change');
+        if(sertChangeButton){
+            sertChangeButton.forEach(function (el) {
+                el.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    _.sertChange(e);
+                });
+            });
+        }
+
         // Добавляет действия при скролле
         window.addEventListener('scroll', () => {
             _.scrl();
