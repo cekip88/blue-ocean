@@ -1,3 +1,6 @@
+import { Slider } from "./libs/slider.js"
+import { MainEventBus } from "./libs/MainEventBus.lib.js";
+
 class Site {
     constructor () {
         this.header = document.querySelector ('header');
@@ -7,7 +10,7 @@ class Site {
         this.sertClose = document.querySelectorAll ('.sertificates-full-close');
         this.articlesArray = [
             {
-            title: 'Полипропиленовые трубы признак качества' ,
+            title: 'Полипропиленовые трубы - признак качества' ,
             date: '20.02.2020' ,
             titlePhoto: 'pipe.jpg' ,
             titleParagrath: 'В век современных технологий эра стальных труб подошла к концу, потому как стальные трубы не так долговечны, со временем они начинают ржаветь и в воду попадают продукты разложения металла. Полипропиленовые трубы лишены этого минуса. Так же полипропилен намного легче, гибче и проще в монтаже. Ну и конечно же внешний вид, гладкие белые ровные трубы, их легко вплести практически в любой дизайн...',
@@ -387,6 +390,21 @@ class Site {
         _.setArticlesFilter();
         _.createArticles();
         _.eHandler();
+
+        new Slider({
+            container : '.sertificates-list',
+            settings: {
+                0: {
+                    arrows: true,
+                    count: 1,
+                    autoSwitch: true,
+                    autoSwitchTime: 2
+                },
+                768:{
+                    count: 3
+                }
+            }
+        })
     }
 }
 

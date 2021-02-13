@@ -1,6 +1,6 @@
 $unit: 'px'
 body
-  font-size: 15px
+  font-size: 18px
 section
   +w($desktop#{$unit})
 
@@ -107,12 +107,13 @@ main
     line-height: 24px
 
 .products
+  &-item
+    flex-basis: calc((100% - 60px) / 4)
   &-photo
     height: 200px
   &-title
     font-size: 24px
   &-text
-    +w(84%)
   &-link
     transition: .35s ease
     &:hover
@@ -154,15 +155,17 @@ main
         margin-left: auto
         margin-right: 50px
   &-unit
+    padding-top: 50px
     &-title
-      font-size: 36px
-      padding-bottom: 25px
+      font-size: 26px
+      padding-bottom: 15px
     &-photo
       +wh(200px)
       flex: 0 0 200px
     &-desc
       padding-top: 20px
       height: 122px
+      line-height: 1.4
     &-link-blue
       a
         border: 1px solid $blue
@@ -196,39 +199,7 @@ main
 .map
   margin-bottom: -20px
   section
+    width: 100%
     iframe
       height: calc(100vh - 343px)
 
-.footer
-  padding: 30px 0
-  &-form
-    +w(auto)
-    &-input
-      +w(150px)
-      margin-right: 30px
-    &-button
-      transition: .35s ease
-      &:hover
-        background-color: $white
-        color: $blue
-  &-row
-    &:first-child
-      margin-bottom: 30px
-    &-item
-      &-item
-        margin-top: 0
-      &-list
-        height: 100px
-        display: flex
-        flex-direction: column
-        justify-content: space-between
-      &-title
-        margin-bottom: 20px
-      &-first
-        flex: 0 0 410px
-      &-second
-        flex: 0 0 255px
-      &-third
-        flex: 0 0 145px
-    &-list
-      +w(100%)

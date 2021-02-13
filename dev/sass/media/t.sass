@@ -13,6 +13,8 @@ section
     display: flex
     justify-content: space-between
     align-items: center
+  &-mobile-row
+    box-shadow: none
   &-scrolled
     .head
       box-shadow: 0 5px 5px rgba(0,0,0,0.2)
@@ -139,9 +141,11 @@ main
   &-list
     display: flex
     justify-content: space-between
+    flex-wrap: wrap
   &-item
-    +w(calc((100% - 60px) / 4))
+    +w(calc((100% - 30px) / 2))
     text-align: center
+    margin-bottom: 20px
   &-photo
     +wh(100%,140px)
     border: 1px solid $blue
@@ -153,9 +157,8 @@ main
       +wh(100%)
       object-fit: cover
   &-title
-    font: 18px $f_bold
+    font: 18px $b_bold
   &-text
-    width: 83%
     margin: 0 auto
   &-line
     +wh(50px,1px)
@@ -267,36 +270,3 @@ main
 .map
   iframe
     height: 300px
-
-.footer
-  &-title
-    margin-bottom: 0
-  &-form
-    +w(480px)
-    display: flex
-    margin-left: auto
-    &-input
-      +w(120px)
-      text-align: right
-      padding-right: 10px
-      padding-bottom: 5px
-      border-bottom: 1px solid $white
-      margin-right: auto
-      &::placeholder
-        opacity: 50%
-    &-button
-      border: 1px solid $white
-  &-row
-    display: flex
-    &:first-child
-      margin-bottom: 20px
-    &-list
-      +w(100%)
-      display: flex
-      justify-content: space-between
-    &-item
-      flex: 0 0 250px
-      margin: 0
-      &-third
-        flex: 0 0 120px
-        text-align: right
