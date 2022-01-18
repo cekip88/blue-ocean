@@ -1,205 +1,26 @@
-$unit: 'px'
 body
-  font-size: 18px
-section
-  +w($desktop#{$unit})
+	padding-top: 171px
+	&.scrolled
+		padding-top: 123px
 
-header
-  &>section
-    position: relative
+.section
+	+w(1170px)
+
 .head
-  &-scrolled
-    .head
-      &-logo
-        padding: 10px 0
-        &-img
-          transform: translateX(-19px)
-        &-word
-          margin-bottom: -23px
-  &-mobile-row,&-scrolled .head-mobile-row
-    padding: 0
-  &-logo
-    padding: 15px 0
-    transition: .35s ease
-    &-link
-      flex-direction: column
-      transition: .35s ease
-      &:hover
-        transform: scale(1.25)
-    &-img
-      margin-right: 0
-    &-word
-      +w(110px)
-      margin-top: 10px
-  &-nav
-    padding: 0
-    &-list
-      padding-right: 0
-    &-item
-      margin-right: 30px
-      &:last-child
-        margin-right: 0
-    &-active
-      span:last-child:after
-        bottom: -10px
-    &-link
-      span
-        position: relative
-      &:hover
-        color: $blue
-        span:last-child:after
-          +wh(100%,2px)
-          background-color: $blue
-          content: ''
-          display: table
-          position: absolute
-          bottom: -10px
-    &-hidden
-      &-list
-        left: 630px
-      &-link
-        &:hover
-          background-color: $blue
-          color: $white
-
-
-main
-  margin-top: 103px
-  min-height: calc(100vh -  363px)
-
-.block
-  &-title
-    font-size: 48px
-    line-height: 48px
-
-.crane
-  &-row
-    margin-bottom: 50px
-
-.main-title
-  padding-top: 40px
-  font-size: 48px
-
-.products,.about,.why,.objects,.articles,.sertificates,.map
-  margin-top: 50px
-
-.products,.about,.why,.articles,.sertificates,.footer-row
-  padding: 0
-
-.slide-button,.articles-desc-button
-  transition: .35s ease
-.slide-button:hover,.articles-desc-button:hover
-  background-color: $white
-  color: $blue
-  border: 1px solid $blue
-
-.slide
-  height: calc(100vh - 220px)
-  &-bg
-    +w(70%)
-  &-content
-    +w(30%)
-    background-color: $blue
-    margin-left: 70%
-  &-title
-    font-size: 36px
-  &-p
-    line-height: 24px
-
-.products
-  &-item
-    flex-basis: calc((100% - 60px) / 4)
-  &-photo
-    height: 200px
-  &-title
-    font-size: 24px
-  &-text
-  &-link
-    transition: .35s ease
-    &:hover
-      background-color: $white
-      color: $blue
-
-.about
-  &-img
-    margin-top: 20px
-    height: 400px
-    background-size: auto 100%
-  &-desc
-    height: 400px
-    margin-top: -400px
-    padding: 0 50px
-  &-text
-    margin-top: 20px
-    &:first-child
-      margin-top: 0
-
-.why
-  &-subtitle
-    font-size: 24px
-  &-item
-    margin-top: 50px
-    &-img
-      margin-bottom: 20px
-
-.objects
-  &-slide
-    &-photo
-      margin: 50px auto 20px
-
-.articles
-  &-filter
-    justify-content: flex-start
-    &-row
-      &:nth-child(2)
-        margin-left: auto
-        margin-right: 50px
-  &-unit
-    padding-top: 50px
-    &-title
-      font-size: 26px
-      padding-bottom: 15px
-    &-photo
-      +wh(200px)
-      flex: 0 0 200px
-    &-desc
-      padding-top: 20px
-      height: 122px
-      line-height: 1.4
-    &-link-blue
-      a
-        border: 1px solid $blue
-        transition: .35s ease
-        &:hover
-          background-color: $white
-          color: $blue
-
-.pagination
-  padding: 20px 450px 0
-
-.sertificates
-  &-list
-    margin-top: 50px
-  &-full
-    padding: 50px 0
-    &-close
-      transition: .35s ease
-      &:before,&:after
-        +wh(30px,3px)
-      &:before
-        transform: rotate(45deg) translateY(2px)
-      &:hover
-        transform: rotate(180deg)
-    &-img
-      +w(500px)
-      margin: 0 50px
-    &-change
-      padding: 20px
-
-.map
-  margin-bottom: -20px
-  section
-    width: 100%
-    iframe
-      height: calc(100vh - 343px)
-
+	padding: 40px 0 48px
+	transition: .35s ease
+	&-logo
+		height: initial
+	&-nav
+		&-link
+			margin-left: 40px
+			text-transform: uppercase
+			font-family: $f_bold
+	&-search
+		input
+			text-transform: uppercase
+	&.scrolled
+		padding: 20px 0
+		.head
+			&-logo
+				height: initial

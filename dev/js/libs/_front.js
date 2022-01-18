@@ -116,6 +116,40 @@ export class _front{
     }
     return MainEventBus.trigger(_.componentName,'createOrderFail',response);
   }
+
+  markupElement(domStr){
+    const _ = this;
+    let parser = new DOMParser().parseFromString(domStr,'text/html');
+    return parser.body.firstElementChild;
+  }
+  markup(domStr,isFragment = true){
+    const _ = this;
+    let
+      fragment = document.createDocumentFragment(),
+      parser = new DOMParser().parseFromString(domStr,'text/html');
+    if(isFragment){
+      fragment.append(...parser.body.children);
+      return fragment;
+    }
+    return parser.body.children;
+  }
+  f(selector){
+    let searchedItems = document.querySelectorAll(selector);
+    if( this instanceof HTMLElement ){
+      searchedItems = this.querySelectorAll(selector);
+    }
+    if(!searchedItems.length) return null;
+    if(searchedItems.length === 1) return  searchedItems[0];
+    return searchedItems;
+  }
+  clear(domElement){
+    if(!domElement) return void 0;
+    if(domElement instanceof HTMLElement){
+      domElement.innerHTML = null;
+    }
+  }
+
+
   init(){
     const _ = this;
   }

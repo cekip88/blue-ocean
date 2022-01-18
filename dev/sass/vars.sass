@@ -1,6 +1,16 @@
 ///*--==[ Ширины]==--*/
 //$unit : '%'
-
+%df
+	display: flex
+%dfa
+	@extend %df
+	align-items: center
+%dfi
+	@extend %dfa
+	justify-content: space-between
+%dfc
+	@extend %dfa
+	justify-content: center
 
 // 320
 $mobile: 320
@@ -12,6 +22,8 @@ $tablet: 768
 $tablet-large: 1004
 // 1170
 $desktop: 1170
+// 1440
+//$desktop-large: 1440
 
 
 ///*--==[ Отступы ]==--*/
@@ -21,17 +33,12 @@ $gap: 0
 
 // --==[ Названия шрифтов]==--
 //+font_inc($f_reg,'path')
-$f_reg: 'roboto-regular'
-$f_bold: 'roboto-bold'
-$b_bold: 'bebas-bold'
-$b_reg: 'bebas-regular'
-$f_light: 'roboto-light'
-$f_thin: 'roboto-thin'
+$f_reg: 'Montserrat-Regular'
+$f_bold: 'Montserrat-Bold'
+$f_extra: 'Montserrat-ExtraBold'
+$f_semi: 'Montserrat-SemiBold'
 
 
 ///*--==[ Цвета ]==--*/
-$black: #000
-$white: #fff
-$gray: #333333
-$blue: #125A9C
-$red: #B61F2A
+$black: #1A1A1A
+$blue: #3959D2

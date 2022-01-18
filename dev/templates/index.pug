@@ -1,142 +1,23 @@
 extends template/main
 append vars
-  -
-    page_title= 'Главная'
+	-
+		page_title= 'Главная'
 block content
-    main
-        .slider
-            section
-                .slide
-                    .slide-1.slide-bg
-                    .slide-content
-                        h2.slide-title.block-title Трубы "#[strong Blue Ocean]"
-                        p.slide-p Полипропиленовые трубы для холодного и горячего водоснабжения, систем отопления, орошения и кондиционирования.
-                        a(href='#').button.slide-button
-                            span Подробнее
-        section
-            .products
-                .crane-row
-                    .crane-line
-                ul.products-list
-                    li.products-item
-                        .products-photo
-                            +img('slide-1.jpg')
-                        h3.products-title Полипропиленовые трубы
-                        p.products-text Армированные аллюминием, стекловолокном, толстостенные и трубы с увеличенной проходимостью
-                        .products-line
-                        a(href='#').products-link Подробнее
-                    li.products-item
-                        .products-photo
-                            +img('fitings.jpg')
-                        h3.products-title Комбинированные фитинги
-                        p.products-text Фитинги с латунными вставками, разъёмные соединения, американки, запорная арматура
-                        .products-line
-                        a(href='#').products-link Подробнее
-                    li.products-item
-                        .products-photo
-                            +img('t-pol.jpg')
-                        h3.products-title Система "Тёплый пол"
-                        p.products-text Полиэтиленовые трубы, трубы с кислородным барьером, металлопластик, коллекторы для теплого пола
-                        .products-line
-                        a(href='#').products-link Подробнее
-                    li.products-item
-                        .products-photo
-                            +img('equipment.webp')
-                        h3.products-title Оборудование и аксессуары
-                        p.products-text Сварочное оборудование, комплекты нагревательных насадок, ножницы и обрезные устройства
-                        .products-line
-                        a(href='#').products-link Подробнее
+	main.main
+		section.banner-slider
+			.banner
+				each slide in slides
+					.banner-slide
+						.banner-bgc
+							img(src!= slide.image)
+						.section.banner-inner
+							h2.banner-title
+								each span in slide.title
+									span #{span}
+							p.banner-text #{slide.text}
+							a(href='/').button.blue
+								span ПОДРОБНЕЕ
+			.banner-control
 
-        section
-            .about
-                .crane-row
-                    .crane-line
-                h2.block-title Наша компания
-                .about-img
-                .about-desc
-                    p.about-text Компания ИП Голубой Океан является официальным дилером "#[strong Blue Ocean International Indusrial (UK) Group]", основанной в Лондоне, Великобритания.
-                    p.about-text Строгий контроль качества, многолетний опыт, постоянные исследования новых технологий и высокое качество обслуживания клиентов - вот основные факторы, которые делают нас одной из ведущих компаний в мире по производству полимерных трубопроводов.
-                    p.about-text Все наши продукты производятся в соответствии с международными стандартами и проходят испытания в специальных сертифицированных лабораториях, наши основные продукты сертифицированы немецким органом сертификации SKZ, а наше сварочное оборудование, клапаны и аксессуары сертифицированы сертификацией CE в Италии.
-                    p.about-text Наши товары представлены более чем в 40 странах мира.
-        section
-            .why
-                .crane-row
-                    .crane-line
-                h2.block-title Преимущества нашей компании
-                ul.why-list
-                    li.why-item
-                        +img('technologies.svg').why-item-img
-                        p.why-item-text Современные технологии производства
-                    li.why-item
-                        +img('microscope.svg').why-item-img
-                        p.why-item-text Собственная лаборатория тестирования
-                    li.why-item
-                        +img('quality.svg').why-item-img
-                        p.why-item-text Европейские стандартны качества
-                    li.why-item
-                        +img('eco.svg').why-item-img
-                        p.why-item-text Экологически чистая продукция
-                    li.why-item
-                        +img('calendar.svg').why-item-img
-                        p.why-item-text Более 12 лет на рынке
-                    li.why-item
-                        +img('money.svg').why-item-img
-                        p.why-item-text Накопительная система скидок
-                    li.why-item
-                        +img('personal.svg').why-item-img
-                        p.why-item-text Вежливый, квалифицированный персонал
-                    li.why-item
-                        +img('assortment.svg').why-item-img
-                        p.why-item-text Огромный ассортимент товаров
-        section
-            .objects
-                .crane-row
-                    .crane-line
-                h2.block-title.objects-title Объекты с нашей продукцией
-                .objects-slider
-                    .objects-slide.objects-slide-1
-                        .objects-slide-photo
-                            h3.objects-slide-title Beijing Palace Soluxe Hotel Astana
-                        span.objects-slide-text Beijing Palace Soluxe Hotel Astana. Один из самых высоких отелей Нур-Султана. На высоте 120 метров на последнем этаже расположен единственный как в городе, так и в Казахстане Вращающийся ресторан. Всего здание насчитывает 23 этажа.
-        section
-            .articles
-                .crane-row
-                    .crane-line
-                h2.block-title Наши статьи
-                ul.articles-page
-        section
-            .sertificates
-                .crane-row
-                    .crane-line
-                h2.block-title Наши сертификаты
-                .sertificates-list
-                    .sertificates-item
-                        +img('sert-1.jpg')
-                    .sertificates-item
-                        +img('sert-2.jpg')
-                    .sertificates-item
-                        +img('sert-3.jpg')
-                    .sertificates-item
-                        +img('sert-4.jpg')
-                    .sertificates-item
-                        +img('sert-5.jpg')
-                    .sertificates-item
-                        +img('sert-6.jpg')
-                    .sertificates-item
-                        +img('sert-7.jpg')
-                    .sertificates-item
-                        +img('sert-8.jpg')
-                    .sertificates-item
-                        +img('sert-9.jpg')
-                    .sertificates-item
-                        +img('sert-10.jpg')
-                    .sertificates-item
-                        +img('sert-11.jpg')
-                    .sertificates-item
-                        +img('sert-12.jpg')
-        .map
-            section
-                .crane-row
-                    .crane-line
-                h2.block-title Мы на карте
-                iframe(src="https://yandex.kz/map-widget/v1/-/CCQlfJD1tC" allowfullscreen="true" style="position:relative;")
+
+

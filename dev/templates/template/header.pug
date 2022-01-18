@@ -1,59 +1,26 @@
-header
-    .head
-        section
-            .head-mobile-row
-                .head-logo
-                    a(href='/').head-logo-link
-                        +img('logo-img.svg').head-logo-img
-                        +img('logo-word.svg').head-logo-word
-                button.head-burger
-                    span.head-burger-span
-                    span.head-burger-span
-                    span.head-burger-span
-            .head-nav
-                ul.head-nav-list
-                    li.head-nav-item
-                        a(href='/').head-nav-link.head-nav-main
-                            span.head-nav-link-img
-                                include ../../img/icon-1.svg
-                            span.head-nav-link-text Главная
-                    li.head-nav-item
-                        a(href='#').head-nav-link.head-nav-product
-                            span.head-nav-link-img
-                                include ../../img/icon-2.svg
-                            span.head-nav-link-text Продукция
-                    li.head-nav-item
-                        a(href='#').head-nav-link
-                            span.head-nav-link-img
-                                include ../../img/icon-3.svg
-                            span.head-nav-link-text Каталог
-                    li.head-nav-item
-                        a(href='#').head-nav-link
-                            span.head-nav-link-img
-                                include ../../img/icon-4.svg
-                            span.head-nav-link-text Прайс
-                    li.head-nav-item
-                        a(href='#').head-nav-link
-                            span.head-nav-link-img
-                                include ../../img/icon-5.svg
-                            span.head-nav-link-text Магазин
-                    li.head-nav-item
-                        a(href='../article.html').head-nav-link.head-nav-article
-                            span.head-nav-link-img
-                                include ../../img/icon-6.svg
-                            span.head-nav-link-text Статьи
-                    li.head-nav-item
-                        a(href='#footer').head-nav-link
-                            span.head-nav-link-img
-                                include ../../img/icon-6.svg
-                            span.head-nav-link-text Контакты
-    section
-        ul.head-nav-hidden-list
-            li.head-nav-hidden-item
-                a(href='#').head-nav-hidden-link Полипропиленовые трубы
-            li.head-nav-hidden-item
-                a(href='#').head-nav-hidden-link Комбинированные фитинги
-            li.head-nav-hidden-item
-                a(href='#').head-nav-hidden-link Система "Теплый пол"
-            li.head-nav-hidden-item
-                a(href='#').head-nav-hidden-link Оборудование и аксессуары
+header.head
+  .section
+    a(href='/').head-logo
+      +img('logo.png')
+    button.head-burger(data-click='burgerClick')
+      span.head-burger-inner
+    .head-mobile
+      nav.head-nav
+        a(href='/').head-nav-link.animation
+          span О компании
+        a(href='/').head-nav-link.animation
+          span Каталог
+        a(href='/').head-nav-link.animation
+          span Контакты
+        a(href='/').head-nav-link.animation
+          span Отзывы
+        a(href='/').head-nav-link.animation
+          include ../../img/download.svg
+          span Скачать прайс-лист
+        a(href='tel:+77004955055').head-nav-link.animation
+          include ../../img/phone.svg
+          span +7(700)4955055
+      .head-search.animation
+        input(type='text' placeholder='Поиск')
+        button
+          include ../../img/search.svg

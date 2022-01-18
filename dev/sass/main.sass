@@ -2,20 +2,17 @@
 @import "../../../../core/mixins/mixins"
 @import "vars"
 $font_body: 14px
-+font_inc($f_reg,'roboto-regular.ttf')
-+font_inc($f_bold,'roboto-bold.ttf')
-+font_inc($b_reg,'BebasNeue-Regular.ttf')
-+font_inc($b_bold,'BebasNeue-Bold.ttf')
-+font_inc($f_light,'roboto-light.ttf')
-+font_inc($f_thin,'roboto-thin.ttf')
++font_inc($f_reg,'Montserrat-Regular.ttf')
++font_inc($f_bold,'Montserrat-Bold.ttf')
++font_inc($f_extra,'Montserrat-ExtraBold.ttf')
++font_inc($f_semi,'Montserrat-SemiBold.ttf')
 .set
 	+wh(100%)
 html,body
 	min-height: 100vh
-	overflow-x: hidden
 body
 	+wh(100%)
-	+font($font_body,$f_reg,$gray)
+	+font($font_body,$f_reg,$black)
 
 input,button
 	font-family: inherit
@@ -27,13 +24,12 @@ input
 
 $unit: 'px'
 
-+mq($mobile#{$unit})
-	@import "media/m"
-+mq($mobile-large#{$unit})
-	@import "media/ml"
-+mq($tablet#{$unit})
+@import "media/m"
++mq(768px)
 	@import "media/t"
-+mq($tablet-large#{$unit})
++mq(1024px)
 	@import "media/tl"
-+mq($desktop#{$unit})
++mq(1200px)
 	@import "media/d"
+//+mq($desktop-large#{$unit})
+	@import "media/dl"

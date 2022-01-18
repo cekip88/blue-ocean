@@ -1,272 +1,48 @@
-$unit: 'px'
-html
-  scroll-behavior: smooth
 body
-  font-size: 14px
-section
-  +w($tablet#{$unit})
+	&.scrolled
+		padding-top: 70px
+.section
+	+w(740px)
 
 .head
-  position: relative
-  z-index: 100
-  section
-    display: flex
-    justify-content: space-between
-    align-items: center
-  &-mobile-row
-    box-shadow: none
-  &-scrolled
-    .head
-      box-shadow: 0 5px 5px rgba(0,0,0,0.2)
-      &-mobile-row
-        box-shadow: none
-        padding: 5px 0 5px 20px
-      &-logo
-        &-link
-          img:first-child
-            height: 40px
-        &-word
-          opacity: 0
-          visibility: hidden
-  &-mobile-row-hidden
-    .head
-      box-shadow: 0 5px 5px rgba(0,0,0,0.2)
-    .head-nav
-      height: auto
-      &-item:nth-child(2)
-        margin-bottom: 0
-    .head-nav-hidden-list
-      height: auto
-      transform: translateY(0px)
-  &-logo
-    &-img
-      height: 50px
-    &-word
-      width: 90px
-  &-mobile-row,&-logo-word,&-logo-img
-    transition: .35s ease
-  &-burger
-    display: none
-  &-nav
-    +wh(auto)
-    overflow: visible
-    position: relative
-    box-shadow: none
-    &-list
-      display: flex
-      margin: 0
-    &-item
-      margin-right: 20px
-      span:first-child
-        display: none
-    &-link
-      color: $blue
-      position: relative
-      z-index: 100
-      background-color: $white
-      padding: 0
-    &-product
-      &:after
-        display: none
-    &-active
-      color: $red
-      span:last-child:after
-        +wh(100%,2px)
-        background-color: $red
-        content: ''
-        display: table
-        position: absolute
-        bottom: -5px
-    &-hidden
-      &-list
-        height: auto
-        transform: translateY(-110%)
-        background-color: $white
-        top: 100%
-        left: 282px
-        z-index: 90
-        box-shadow: 0 5px 5px rgba(0,0,0,.2)
-      &-item
-        height: auto
-        &:first-child
-          .head-nav-hidden-link
-            padding: 20px 30px 10px
-        &:last-child
-          .head-nav-hidden-link
-            padding: 10px 30px 20px
-      &-link
-        color: $blue
-        height: auto
-        padding: 10px 30px
+	&-burger
+		display: none
+	&-mobile
+		+wh(initial)
+		padding: 0
+		align-items: flex-end
+		position: static
+	&-nav
+		flex-direction: row
+		align-items: center
+		order: 2
+		&-link
+			margin-bottom: 0
+			margin-left: 20px
+	&-nav,&-search
+		width: initial
+	&-search
+		margin-bottom: 10px
+		button
+			margin-top: 3px
+			margin-right: 0
+			margin-left: 10px
+		input
+			width: 100px
+			order: initial
+			text-align: right
+	.animation
+		opacity: 1
+		transform: none
+	&.scrolled
+		.head-logo
+			height: 50px
 
-main
-  margin-top: 70px
-  min-height: calc(100vh - 286px)
-
-.crane
-  &-row
-    margin-bottom: 30px
-    width: 500px
-
-.main-title
-  +w(100%)
-  font-size: 32px
-  text-align: left
-
-.products,.about,.why,.objects,.articles,.sertificates,.map
-  margin-top: 30px
-
-.slider
-  section
-    +w(100%)
-.slide
-  height: 400px
-  &-bg
-    +w(60%)
-  &-content
-    +w(40%)
-    background-color: $blue
-    margin-left: 60%
-  &-title
-    font-size: 30px
-    font-family: $f_thin
-    strong
-      font-family: $f_bold
-  &-p
-    text-align: center
-
-
-.products
-  display: block
-  &-list
-    display: flex
-    justify-content: space-between
-    flex-wrap: wrap
-  &-item
-    +w(calc((100% - 30px) / 2))
-    text-align: center
-    margin-bottom: 20px
-  &-photo
-    +wh(100%,140px)
-    border: 1px solid $blue
-    overflow: hidden
-    display: flex
-    align-items: center
-    justify-content: center
-    img
-      +wh(100%)
-      object-fit: cover
-  &-title
-    font: 18px $b_bold
-  &-text
-    margin: 0 auto
-  &-line
-    +wh(50px,1px)
-    background-color: $blue
-    margin: 0 auto
-  &-link
-    +w(fit-content)
-    border: 1px solid $blue
-    display: block
-    color: $white
-    margin: 0 auto
-    padding: 6px 36px
-    background-color: $blue
-    border-radius: 20px
-  &-photo,&-title,&-text,&-line
-    margin-bottom: 15px
-
-.about
-  &-img
-    height: 355px
-  &-desc
-    height: 355px
-    background-color: rgba(255,255,255,.9)
-    display: flex
-    flex-direction: column
-    justify-content: center
-    margin-top: -355px
-    padding: 0 20px
-
-.why
-  &-item
-    flex: 0 0 25%
-
-.objects
-  &-slide
-    &-photo
-      height: 512px
-    &-text
-      +w(80%)
-      margin: 0 auto
-    &-title
-      font-size: 24px
-      padding: 20px 50px
-
-.articles
-  &-filter
-    display: flex
-    align-items: center
-    justify-content: space-between
-    &-title
-      margin-right: 20px
-  &-unit
-    &:after
-      display: table
-      content: ''
-      +wh(100%,1px)
-      background-color: $blue
-      margin-top: 20px
-    &-title
-      font-size: 24px
-      margin: 0
-    &-photo
-      +w(150px)
-      flex: 0 0 150px
-      margin: 0 20px 0 0
-    &-desc
-      height: 93px
-      overflow: hidden
-    &-link
-      &-blue
-        justify-content: flex-start
-        a
-          color: $white
-          padding: 10px 30px
-          background-color: $blue
-          border-radius: 20px
-          margin: 0
-        &:before,&:after
-          display: none
-    &-show
-      display: flex
-      padding-top: 20px
-    &-hidden
-      &-photo
-        &-right,&-left
-          &:after
-            clear: both
-            content: ''
-            display: table
-          img
-            width: 30%
-        &-right
-          img
-            margin-left: 20px
-        &-left
-          img
-            margin-right: 20px
-
-.pagination
-  padding: 20px 240px 0
-
-.sertificates
-  &-full
-    &-img
-      width: auto
-    &-close
-      margin-right: 30px
-
-.map
-  iframe
-    height: 300px
+.banner
+	&-bgc
+		position: relative
+		&:before
+			+af
+			+wh(100%)
+			background: linear-gradient(89.01deg, rgba(255, 255, 255, 0.9) 0.85%, rgba(255, 255, 255, 0) 87.99%)
+			position: absolute
