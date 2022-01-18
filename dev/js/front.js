@@ -7,8 +7,10 @@ class Front extends _front{
     const _ = this;
     G_Bus
       .on('burgerClick',_.burgerClick.bind(_))
+      .on('dotClick',_.dotClick.bind(_))
   }
 
+  // метод отвечающий за работу хедера при скроллинге
   headScroll(){
     const _ = this;
     if (window.pageYOffset) {
@@ -31,6 +33,7 @@ class Front extends _front{
     })
   }
 
+  // методы работы бургера
   burgerClick(){
     const _ = this;
     if (_.headAnimation) return;
@@ -71,12 +74,85 @@ class Front extends _front{
     },150)
   }
 
-  mainSliderInit(){
+  // инициализация и управление слайдерами
+  slidersInit(){
     const _ = this;
     let mainSlider = _.f('.banner');
-    if (!mainSlider) return;
-    mainSlider.firstElementChild.classList.add('active');
+    if (mainSlider) _.mainSliderInit(mainSlider);
+  }
 
+  mainSliderInit(slider){
+    const _ = this;
+
+    let
+      slidesCont = slider.firstElementChild,
+      firstSlide = slidesCont.firstElementChild,
+      markup = '';
+
+    firstSlide.classList.add('active');
+    firstSlide.querySelector('.slide-inner').classList.add('active');
+
+    for (let i = 0; i < slidesCont.children.length; i++) {
+      markup += `
+        <button 
+          class="dot${!i?' active':''}" 
+          data-id="${i}"
+          data-click="dotClick"></button>
+      `;
+    }
+    slider.querySelector('.dots').append(_.markup(markup));
+  }
+
+  dotClick(clickData){
+    const _ = this;
+    let
+      btn = clickData.item,
+      slider = btn.closest('.slider'),
+      id = btn.getAttribute('data-id'),
+      slidesCont = slider.querySelector('.slides'),
+      activeDot = slider.querySelector('.dot.active'),
+      targetSlide = slidesCont.children[id],
+      activeSlide = slider.querySelector('.active'),
+      activeSlideInners = activeSlide.querySelectorAll('.animation');
+
+    _.animationIterator(activeSlideInners, true);
+    setTimeout(()=>{
+      activeSlide.classList.remove('active');
+      targetSlide.classList.add('active');
+    },200)
+    setTimeout(()=>{
+      _.animationIterator(targetSlide.querySelectorAll('.animation'))
+    },500)
+
+    activeDot.classList.remove('active');
+    btn.classList.add('active');
+  }
+  animationIterator (data) {
+    const _ = this;
+    let
+      array = data.array,
+      reverse = data.reverse,
+      index = data.index,
+      parent = data.parent;
+
+    if (!reverse) {
+      if (index === null) index = 0;
+      if (index >= array.length) {
+        //if (parent) parent.
+        return;
+      }
+      array[index].classList.add('active');
+      index++;
+    }
+    else {
+      if (index === null) index = array.length - 1;
+      if (index <= 0) return;
+      array[index].classList.remove('active');
+      index--;
+    }
+    setTimeout(()=>{
+      _.animationIterator({array,reverse,index,parent})
+    },150)
   }
 
   init(){
@@ -86,7 +162,7 @@ class Front extends _front{
     _.head = _.body.querySelector('.head');
 
     _.headScroll();
-    _.mainSliderInit();
+    _.slidersInit();
   }
 }
 new Front();

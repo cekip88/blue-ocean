@@ -120,11 +120,40 @@ body
 				height: 40px
 
 
-.banner
-	&-slide
+.dot
+	@extend %dfc
+	@extend %transition
+	+wh(18px)
+	border: 2px solid transparent
+	border-radius: 100%
+	&:after
 		@extend %transition
+		+af
+		+wh(14px)
+		background-color: #fff
+		border-radius: 100%
+	&.active
+		border-color: #fff
+		&:after
+			+wh(10px)
+			background-color: $blue
+
+.banner
+	position: relative
+	&-slider
+		overflow: hidden
+	&-control
+		transform: translateY(-50%)
+		position: absolute
+		right: 10px
+		top: 50%
+		.dot
+			margin-bottom: 10px
+			&:last-child
+				margin-bottom: 0
+	&-slide
 		width: 100%
-		padding: 50px 20px
+		padding: 50px 0
 		opacity: 0
 		visibility: hidden
 		position: absolute
@@ -136,14 +165,22 @@ body
 			position: relative
 	&-bgc
 		+wh(100%)
-		opacity: .6
 		position: absolute
 		top: 0
 		left: 0
 		z-index: -1
+		&:before
+			+af
+			+wh(100%)
+			background: linear-gradient(89.01deg, rgba(255, 255, 255, 0.9) 0.85%, rgba(255, 255, 255, 0) 87.99%)
+			position: absolute
+			left: 0
+			top: 0
 		img
 			+wh(100%)
 			object-fit: cover
+	&-inner
+		padding-right: 25px
 	&-title
 		font-size: 18px
 		font-family: $f_extra
@@ -152,3 +189,12 @@ body
 	&-text
 		margin: 20px 0 30px
 		font-family: $f_semi
+	.animation
+		@extend %transition
+		opacity: 0
+		visibility: hidden
+		transform: translateY(-50px)
+		&.active
+			opacity: 1
+			visibility: visible
+			transform: none

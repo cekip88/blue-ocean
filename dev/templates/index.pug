@@ -4,20 +4,20 @@ append vars
 		page_title= 'Главная'
 block content
 	main.main
-		section.banner-slider
-			.banner
+		section.banner.slider
+			.banner-slider.slides
 				each slide in slides
-					.banner-slide
+					.banner-slide.slide
 						.banner-bgc
 							img(src!= slide.image)
-						.section.banner-inner
-							h2.banner-title
+						.section.banner-inner.slide-inner
+							h2.banner-title.animation
 								each span in slide.title
 									span #{span}
-							p.banner-text #{slide.text}
-							a(href='/').button.blue
+							p.banner-text.animation #{slide.text}
+							a(href='/').button.blue.animation
 								span ПОДРОБНЕЕ
-			.banner-control
+			.banner-control.dots
 
 
 
