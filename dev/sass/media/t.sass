@@ -4,6 +4,12 @@ body
 .section
 	+w(740px)
 
+.button
+	&.blue
+		width: 236px
+		height: 72px
+		font-size: 16px
+
 .head
 	&-burger
 		display: none
@@ -38,7 +44,15 @@ body
 		.head-logo
 			height: 50px
 
+
 .banner
+	height: 400px
+	&-slider
+		height: 100%
+	&-slide
+		padding: 0
+		display: flex
+		align-items: center
 	&-bgc
 		position: relative
 		&:before
@@ -46,3 +60,11 @@ body
 			+wh(100%)
 			background: linear-gradient(89.01deg, rgba(255, 255, 255, 0.9) 0.85%, rgba(255, 255, 255, 0) 87.99%)
 			position: absolute
+	&-inner
+		position: absolute
+		left: 0
+		right: 0
+	&-title
+		font-size: 36px
+	&-text
+		font-size: 18px

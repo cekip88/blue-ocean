@@ -34,44 +34,32 @@ class Front extends _front{
   }
 
   // методы работы бургера
-  burgerClick(){
+  async burgerClick(){
     const _ = this;
     if (_.headAnimation) return;
     _.headAnimation = true;
     let
       links = _.head.querySelectorAll('.animation');
 
-
     if (!_.head.classList.contains('active')) {
       _.head.classList.add('active');
       _.body.style = 'overflow:hidden;'
-      _.showHeadLink(links,0);
+      setTimeout(async ()=>{
+        await _.animationIterator({
+          'array':links
+        },2000)
+      })
+      _.headAnimation = false;
     }
     else {
       _.body.removeAttribute('style');
-      _.showHeadLink(links,links.length - 1,true);
+      await _.animationIterator({
+        'array':links,
+        'reverse':true
+      });
+      _.head.classList.remove('active');
+      _.headAnimation = false;
     }
-  }
-  showHeadLink(array,index,reverse = false){
-    const _ = this;
-    setTimeout(()=>{
-      if (index >= array.length || index < 0) {
-        if (reverse) {
-          _.head.classList.remove('active');
-        }
-        _.headAnimation = false;
-        return;
-      }
-      if (!reverse){
-        array[index].style = 'opacity:1;transform:none;'
-        index++;
-      }
-      else {
-        array[index].removeAttribute('style');
-        index--;
-      }
-      _.showHeadLink(array,index,reverse);
-    },150)
   }
 
   // инициализация и управление слайдерами
@@ -81,78 +69,88 @@ class Front extends _front{
     if (mainSlider) _.mainSliderInit(mainSlider);
   }
 
-  mainSliderInit(slider){
+  async mainSliderInit(slider){
     const _ = this;
 
     let
       slidesCont = slider.firstElementChild,
-      firstSlide = slidesCont.firstElementChild,
-      markup = '';
+      firstSlide = slidesCont.firstElementChild;
 
-    firstSlide.classList.add('active');
-    firstSlide.querySelector('.slide-inner').classList.add('active');
+    _.animationIterator({
+      'array':firstSlide.querySelectorAll('.animation')
+    });
+    let btnsMarkup = '';
 
     for (let i = 0; i < slidesCont.children.length; i++) {
-      markup += `
+      btnsMarkup += `
         <button 
-          class="dot${!i?' active':''}" 
+          class="dot${!i ? ' active' : ''}"
+          data-click="dotClick"
           data-id="${i}"
-          data-click="dotClick"></button>
+        ></button>
       `;
+      slidesCont.children[i].setAttribute('data-id',i);
     }
-    slider.querySelector('.dots').append(_.markup(markup));
+
+    let buttonTpl = _.markup(btnsMarkup);
+    slider.querySelector('.dots').append(buttonTpl);
   }
 
-  dotClick(clickData){
+  async dotClick(clickData){
     const _ = this;
     let
       btn = clickData.item,
-      slider = btn.closest('.slider'),
       id = btn.getAttribute('data-id'),
-      slidesCont = slider.querySelector('.slides'),
-      activeDot = slider.querySelector('.dot.active'),
-      targetSlide = slidesCont.children[id],
-      activeSlide = slider.querySelector('.active'),
+      dots = btn.parentElement,
+      activeDot = dots.querySelector('.dot.active'),
+      slider = dots.closest('.slider'),
+      slides = slider.querySelector('.slides'),
+      activeSlide = slides.firstElementChild,
+      targetSlide = slides.querySelector(`.slide[data-id="${id}"]`),
       activeSlideInners = activeSlide.querySelectorAll('.animation');
-
-    _.animationIterator(activeSlideInners, true);
-    setTimeout(()=>{
-      activeSlide.classList.remove('active');
-      targetSlide.classList.add('active');
-    },200)
-    setTimeout(()=>{
-      _.animationIterator(targetSlide.querySelectorAll('.animation'))
-    },500)
 
     activeDot.classList.remove('active');
     btn.classList.add('active');
+    await _.animationIterator({
+      'array':activeSlideInners,
+      'reverse':true,
+      'time':200
+    });
+    slides.prepend(targetSlide);
+    await _.animationIterator({
+      'array':targetSlide.querySelectorAll('.animation'),
+      'time':200
+    });
   }
-  animationIterator (data) {
-    const _ = this;
-    let
-      array = data.array,
-      reverse = data.reverse,
-      index = data.index,
-      parent = data.parent;
+  async animationIterator (data) {
+    let response = new Promise((resolve) => {
+      if (!data['time']) data['time'] = 150
+      setTimeout(async ()=>{
+        const _ = this;
+        if (data['index'] === undefined) {
+          data['index'] = data['reverse'] ? data['array'].length - 1 : 0;
+        };
 
-    if (!reverse) {
-      if (index === null) index = 0;
-      if (index >= array.length) {
-        //if (parent) parent.
-        return;
-      }
-      array[index].classList.add('active');
-      index++;
-    }
-    else {
-      if (index === null) index = array.length - 1;
-      if (index <= 0) return;
-      array[index].classList.remove('active');
-      index--;
-    }
-    setTimeout(()=>{
-      _.animationIterator({array,reverse,index,parent})
-    },150)
+        if (!data['reverse']) {
+          data['array'][data['index']].classList.add('active');
+          data['index']++;
+          if (data['index'] >= data['array'].length) {
+            resolve(data['index']);
+            return;
+          }
+        }
+        else {
+          if (data['index'] < 0) {
+            resolve(data['index']);
+            return;
+          }
+          data['array'][data['index']].classList.remove('active');
+          data['index']--;
+        }
+        resolve(await _.animationIterator(data))
+      },data['time'])
+    });
+    return response;
   }
 
   init(){

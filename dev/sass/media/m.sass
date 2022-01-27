@@ -82,7 +82,6 @@ body
 		flex-direction: column
 		justify-content: center
 		&-link
-			@extend %transition
 			@extend %dfa
 			margin-bottom: 20px
 			span
@@ -90,7 +89,6 @@ body
 			svg
 				margin-right: 10px
 	&-search
-		@extend %transition
 		@extend %dfa
 		button
 			margin-right: 10px
@@ -104,6 +102,10 @@ body
 	.animation
 		transform: translateY(-30px)
 		opacity: 0
+		transition: .25s ease
+		&.active
+			transform: none
+			opacity: 1
 	&.active
 		.head
 			&-burger
@@ -138,10 +140,15 @@ body
 			+wh(10px)
 			background-color: $blue
 
+.slides
+	@extend %df
+	align-items: stretch
+	justify-content: flex-start
+	overflow: hidden
+
+
 .banner
 	position: relative
-	&-slider
-		overflow: hidden
 	&-control
 		transform: translateY(-50%)
 		position: absolute
@@ -153,22 +160,21 @@ body
 				margin-bottom: 0
 	&-slide
 		width: 100%
+		flex: 0 0 100%
 		padding: 50px 0
-		opacity: 0
-		visibility: hidden
-		position: absolute
-		top: 0
-		left: 0
-		&.active
-			opacity: 1
-			visibility: visible
-			position: relative
+		position: relative
 	&-bgc
 		+wh(100%)
 		position: absolute
 		top: 0
 		left: 0
 		z-index: -1
+		transform: none
+		&.animation
+			filter: blur(3px)
+			transition: .25s ease
+			&.active
+				filter: blur(0)
 		&:before
 			+af
 			+wh(100%)
@@ -181,20 +187,26 @@ body
 			object-fit: cover
 	&-inner
 		padding-right: 25px
+		.animation
+			opacity: 0
+			visibility: hidden
+			transform: translateY(-50px)
+			transition: .25s ease
+			&.active
+				opacity: 1
+				visibility: visible
+				transform: none
 	&-title
+		@extend %df
+		flex-direction: column
 		font-size: 18px
 		font-family: $f_extra
 		span
-			display: block
+			line-height: 1.4
 	&-text
+		@extend %df
 		margin: 20px 0 30px
+		flex-direction: column
 		font-family: $f_semi
-	.animation
-		@extend %transition
-		opacity: 0
-		visibility: hidden
-		transform: translateY(-50px)
-		&.active
-			opacity: 1
-			visibility: visible
-			transform: none
+		span
+			line-height: 1.4

@@ -6,15 +6,17 @@ block content
 	main.main
 		section.banner.slider
 			.banner-slider.slides
-				each slide in slides
+				each slide in bannerSlides
 					.banner-slide.slide
-						.banner-bgc
+						.banner-bgc.animation
 							img(src!= slide.image)
-						.section.banner-inner.slide-inner
+						.section.banner-inner
 							h2.banner-title.animation
 								each span in slide.title
 									span #{span}
-							p.banner-text.animation #{slide.text}
+							p.banner-text.animation
+								each span in slide.text
+									span #{span}
 							a(href='/').button.blue.animation
 								span ПОДРОБНЕЕ
 			.banner-control.dots
