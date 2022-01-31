@@ -14,12 +14,21 @@ block content
 							h2.banner-title.animation
 								each span in slide.title
 									span #{span}
-							p.banner-text.animation
+							h6.banner-text.animation
 								each span in slide.text
 									span #{span}
 							a(href='/').button.blue.animation
 								span ПОДРОБНЕЕ
 			.banner-control.dots
+		section.search
+			.section
+				h6.subtitle
+					span НАЙДИТЕ ТО, ЧТО ВАМ НУЖНО СРЕДИ 1000+ ТОВАРОВ
+				form.search-form
+					.search-input-block
+						input(type='text').search-input
+						span.search-input-label Фитинги для
+					button.search-button Поиск
 
 
 

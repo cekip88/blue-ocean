@@ -9,6 +9,9 @@ body
 		width: 236px
 		height: 72px
 		font-size: 16px
+.subtitle
+	font-size: 16px
+
 
 .head
 	&-burger
@@ -68,3 +71,27 @@ body
 		font-size: 36px
 	&-text
 		font-size: 18px
+
+
+.search
+	&-form
+		box-shadow: 2px 2px 4px rgba(#000,.18)
+	&-input
+		padding: 20px 10px 20px 140px
+		border-color: rgba(#C4C4C4,.2)
+		&-label
+			display: flex
+			align-items: center
+			color: rgba(#14142B,.6)
+			font-size: 14px
+			font-family: $f_semi
+			position: absolute
+			left: 20px
+			&:after
+				+af
+				+wh(2px,13px)
+				margin-top: 1px
+				margin-left: 8px
+				background-color: rgba(#14142b,.6)
+	&-button
+		flex: 0 0 208px
