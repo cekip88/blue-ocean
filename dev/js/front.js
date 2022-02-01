@@ -8,6 +8,8 @@ class Front extends _front{
     G_Bus
       .on('burgerClick',_.burgerClick.bind(_))
       .on('dotClick',_.dotClick.bind(_))
+      .on('next',_.next.bind(_))
+      .on('prev',_.prev.bind(_))
   }
 
   // метод отвечающий за работу хедера при скроллинге
@@ -93,7 +95,7 @@ class Front extends _front{
     }
 
     let buttonTpl = _.markup(btnsMarkup);
-    slider.querySelector('.dots').append(buttonTpl);
+    slider.querySelector('.banner-control').append(buttonTpl);
   }
 
   async dotClick(clickData){
@@ -151,6 +153,23 @@ class Front extends _front{
       },data['time'])
     });
     return response;
+  }
+
+  next(clickData){
+    const _ = this;
+    let
+      btn = clickData.item,
+      section = btn.closest('.section'),
+      slider = section.querySelector('.slides');
+    slider.append(slider.firstElementChild)
+  }
+  prev(clickData){
+    const _ = this;
+    let
+      btn = clickData.item,
+      section = btn.closest('.section'),
+      slider = section.querySelector('.slides');
+    slider.prepend(slider.lastElementChild)
   }
 
   init(){

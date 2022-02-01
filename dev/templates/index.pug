@@ -19,16 +19,113 @@ block content
 									span #{span}
 							a(href='/').button.blue.animation
 								span ПОДРОБНЕЕ
-			.banner-control.dots
-		section.search
+			.banner-control
+		section.search.block
 			.section
-				h6.subtitle
+				h3.subtitle
 					span НАЙДИТЕ ТО, ЧТО ВАМ НУЖНО СРЕДИ 1000+ ТОВАРОВ
 				form.search-form
-					.search-input-block
-						input(type='text').search-input
-						span.search-input-label Фитинги для
-					button.search-button Поиск
+					.input-block
+						input(type='text').input
+						span.input-label Фитинги для
+					button.button Поиск
+		section.catalog
+			.section
+				h3.subtitle.catalog-subtitle ЧТО МЫ ПРЕДЛАГАЕМ?
+				.catalog-slider.slides
+					each slide in catalogSlides
+						a(href='./product.html').catalog-slide.slide
+							h6.catalog-slide-subtitle.subtitle #{slide.title}
+							p.catalog-slide-text #{slide.text}
+							span.catalog-slide-link.subtitle Подробнее
+				.catalog-bottom
+					a(href='./catalog.html').button.blue
+						span Подробнее
+					.catalog-arrows
+						button(data-click='prev').catalog-arrow.catalog-arrow-left
+							+img('black-arrow-left.svg')
+						button(data-click='next').catalog-arrow.catalog-arrow-right
+							+img('black-arrow-right.svg')
+		section.about.block
+			.section
+				h3.subtitle О КОМПАНИИ
+				p.about-text "Голубой океан" является динамично развивающейся компанией в сфере реализации полимерных труб, фитингов, радиаторов и теплых полов, применяемых в строительстве наружных инженерных систем, систем холодного водоснабжения, напорного водоотведения с пятнадцатилетним опытом на рынке.
+				ul.about-list
+					li.about-item
+						+img('about-bgc-1.jpg')
+					li.about-item
+						+img('about-bgc-2.jpg')
+					li.about-item
+						+img('about-bgc-3.jpg')
+					li.about-item
+						+img('about-bgc-4.jpg')
+		section.call.call-1
+			.section
+				.call-row
+					.call-left
+						h3.subtitle ПОЛУЧИТЕ БЕСПЛАТНУЮ КОНСУЛЬТАЦИЮ
+						.call-links
+							a(href='tel:+77212476788').call-link
+								include ../img/phone.svg
+								span +7 721 247 67 88
+							a(href='mailto:mail@blue-ocean.kz').call-link
+								include ../img/mail.svg
+								span mail@blue-ocean.kz
+					form.call-form
+						.call-form
+							.input-block
+								input(type='text' placeholder='+7 777 777 77 77').input
+								span.input-label Ваш номер телефона:
+							button.button ОТПРАВИТЬ
+		section.block.partners
+			.section
+				h3.subtitle НАШИ ПАРТНЕРЫ
+				.inner
+					.inner-top
+						h1.title BLUE OCEAN
+						.inner-links
+							a(href='#').inner-link
+								span BLUE OCEAN
+							a(href='#').inner-link
+								include ../img/download.svg
+								span КАТАЛОГ ПРОДУКЦИИ
+							a(href='#').inner-link
+								include ../img/download.svg
+								span БРОШЮРА
+					ul.inner-list
+						li.inner-item
+							include ../img/Medal.svg
+							.inner-item-block
+								h6.subtitle Качество
+								p.inner-item-text Не зарастают внутри в процессе эксплуатации
+						li.inner-item
+							include ../img/fist.svg
+							.inner-item-block
+								h6.subtitle стойкость
+								p.inner-item-text Не поддаются влиянию коррозии и прочих  атмосферных факторов
+						li.inner-item
+							include ../img/Eye.svg
+							.inner-item-block
+								h6.subtitle Эстетика
+								p.inner-item-text Не нуждаются в покраске
+						li.inner-item
+							include ../img/ThumbsUp.svg
+							.inner-item-block
+								h6.subtitle Комфорт
+								p.inner-item-text Не создают вибрации и урчания, а также прочих шумов
+						li.inner-item
+							include ../img/Bed.svg
+							.inner-item-block
+								h6.subtitle Удобство
+								p.inner-item-text Максимальная простота в работе на протяжении десятков лет
+						li.inner-item
+							include ../img/ShieldCheck.svg
+							.inner-item-block
+								h6.subtitle Защита
+								p.inner-item-text Не проводят электрический заряд
+
+
+
 
 
 

@@ -5,13 +5,36 @@ body
 	+w(740px)
 
 .button
+	flex: 0 0 208px
 	&.blue
 		width: 236px
 		height: 72px
 		font-size: 16px
+
+.title
+	font-size: 48px
 .subtitle
 	font-size: 16px
 
+.input
+	padding: 20px 10px 20px 140px
+	&-block
+		border-color: rgba(#C4C4C4,.2)
+		box-shadow: 2px 2px 4px rgba(#000,.18)
+	&-label
+		display: flex
+		align-items: center
+		color: rgba(#14142B,.6)
+		font-size: 14px
+		font-family: $f_semi
+		position: absolute
+		left: 20px
+		&:after
+			+af
+			+wh(2px,13px)
+			margin-top: 1px
+			margin-left: 8px
+			background-color: rgba(#14142b,.6)
 
 .head
 	&-burger
@@ -32,12 +55,7 @@ body
 		width: initial
 	&-search
 		margin-bottom: 10px
-		button
-			margin-top: 3px
-			margin-right: 0
-			margin-left: 10px
 		input
-			width: 100px
 			order: initial
 			text-align: right
 	.animation
@@ -73,25 +91,65 @@ body
 		font-size: 18px
 
 
-.search
+.catalog
+	overflow: hidden
+	&-slider
+		width: 100vw
+	&-slide
+		flex-basis: 328px
+		margin-right: 18px
+		padding: 70px 40px 88px
+		&:first-child
+			margin-left: -346px
+		&:before
+			margin-bottom: 17px
+		&-subtitle
+			margin-bottom: 68px
+		&-text
+			margin-bottom: 107px
+
+
+.about
+	&-item
+		flex-basis: calc(25% - 13.5px)
+		height: 220px
+		
+
+.call
+	padding: 50px 0
+	&-links
+		flex-direction: row
+	&-link
+		&:first-child
+			margin-right: 23px
+		svg
+			width: 20px
 	&-form
-		box-shadow: 2px 2px 4px rgba(#000,.18)
-	&-input
-		padding: 20px 10px 20px 140px
-		border-color: rgba(#C4C4C4,.2)
+		width: 100%
+	.input
+		padding: 30px 20px 10px
 		&-label
-			display: flex
-			align-items: center
-			color: rgba(#14142B,.6)
-			font-size: 14px
-			font-family: $f_semi
-			position: absolute
-			left: 20px
+			top: 10px
 			&:after
-				+af
-				+wh(2px,13px)
-				margin-top: 1px
-				margin-left: 8px
-				background-color: rgba(#14142b,.6)
-	&-button
-		flex: 0 0 208px
+				content: none
+
+
+.partners
+	.inner
+		&-top
+			padding: 50px
+			background-size: 100% auto
+		&-links
+			flex-direction: row
+		&-link
+			margin-top: 0
+			margin-right: 24px
+			&:first-child
+				padding-left: 0
+		&-list
+			padding: 40px 20px 35px
+		&-item
+			flex-basis: calc(33% - 10px)
+			margin-top: 0
+			&:nth-child(1),&:nth-child(2),&:nth-child(3)
+				margin-bottom: 50px

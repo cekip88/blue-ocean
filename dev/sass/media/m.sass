@@ -11,10 +11,15 @@ body
 
 
 .button
-	padding: 10px 0
+	padding: 10px
 	display: inline-flex
 	align-items: center
 	justify-content: center
+	background-color: #fff
+	border: 2px solid $blue
+	color: $blue
+	font-family: $f_bold
+	text-transform: uppercase
 	&.blue
 		width: 150px
 		background-color: $blue
@@ -29,8 +34,37 @@ body
 			border-right: 3px solid #fff
 			transform: rotate(45deg)
 
+.title
+	font-family: $f_extra
+	font-size: 24px
+	line-height: 1.3
 .subtitle
 	font-family: $f_bold
+
+.block
+	padding: 50px 0
+	.subtitle
+		margin-bottom: 25px
+
+.input
+	width: 100%
+	padding: 10px
+	border-right: none
+	&-block
+		@extend %dfa
+		width: 100%
+		background-color: #fff
+		border: 2px solid rgba(#14142b,.6)
+		border-right: none
+		position: relative
+	&-label
+		display: none
+
+.slides
+	@extend %df
+	align-items: stretch
+	justify-content: flex-start
+	overflow: hidden
 
 
 .head
@@ -96,11 +130,24 @@ body
 		@extend %dfa
 		button
 			margin-right: 10px
+			svg
+				display: block
 		input
-			order: 2
+			@extend %transition
+			width: 52px
+			border-bottom: 1px solid transparent
+			font-size: 12px
 			&,&::placeholder
 				font-family: $f_bold
 				color: $blue
+			&::placeholder
+				text-transform: uppercase
+			&:hover,&:focus
+				border-color: $blue
+			&:focus
+				width: 100px
+				&::placeholder
+					opacity: 0
 	&-nav,&-search
 		width: 300px
 	.animation
@@ -126,30 +173,6 @@ body
 				height: 40px
 
 
-.dot
-	@extend %dfc
-	@extend %transition
-	+wh(18px)
-	border: 2px solid transparent
-	border-radius: 100%
-	&:after
-		@extend %transition
-		+af
-		+wh(14px)
-		background-color: #fff
-		border-radius: 100%
-	&.active
-		border-color: #fff
-		&:after
-			+wh(10px)
-			background-color: $blue
-
-.slides
-	@extend %df
-	align-items: stretch
-	justify-content: flex-start
-	overflow: hidden
-
 
 .banner
 	position: relative
@@ -159,9 +182,25 @@ body
 		right: 10px
 		top: 50%
 		.dot
+			@extend %dfc
+			@extend %transition
+			+wh(18px)
 			margin-bottom: 10px
+			border: 2px solid transparent
+			border-radius: 100%
 			&:last-child
 				margin-bottom: 0
+			&:after
+				@extend %transition
+				+af
+				+wh(14px)
+				background-color: #fff
+				border-radius: 100%
+			&.active
+				border-color: #fff
+				&:after
+					+wh(10px)
+					background-color: $blue
 	&-slide
 		width: 100%
 		flex: 0 0 100%
@@ -219,27 +258,144 @@ body
 
 
 .search
-	padding: 50px 0
 	.subtitle
-		margin-bottom: 25px
 		text-align: center
 	&-form
 		@extend %df
 		justify-content: center
-	&-input
-		width: 100%
-		padding: 10px
-		border: 2px solid rgba(#14142b,.6)
-		border-right: none
-		&-block
-			@extend %dfa
-			width: 100%
-			position: relative
-		&-label
-			display: none
-	&-button
-		padding: 0 10px
-		border: 2px solid $blue
-		color: $blue
+
+
+.catalog
+	padding: 30px 0
+	background-image: url('img/tools and fitings.jpg')
+	&-subtitle
+		margin-bottom: 20px
+	&-slider
+		margin-bottom: 20px
+	&-slide
+		@extend %transition
+		flex: 0 0 100%
+		padding: 35px 10px 44px
+		background-color: rgba(#fff,.9)
+		box-shadow: 0 4px 4px rgba(#000,.25)
+		&:first-child
+			margin-left: -100%
+		&:before
+			+af
+			+wh(40px,2px)
+			margin-bottom: 17px
+			background-color: $red
+		&-subtitle
+			margin-bottom: 34px
+		&-text
+			margin-bottom: 58px
+			line-height: 1.7
+		&-link
+			color: $red
+	&-bottom
+		@extend %dfi
+	&-arrow
+		padding: 10px 0
+		&-left
+			margin-right: 57px
+
+
+.about
+	&-text
+		margin-bottom: 20px
+		line-height: 1.4
+	&-list
+		@extend %dfi
+		flex-wrap: wrap
+	&-item
+		height: 180px
+		flex: 0 0 calc(50% - 5px)
+		margin-bottom: 10px
+		img
+			+wh(100%)
+			object-fit: cover
+
+
+.call
+	padding: 20px 0
+	.subtitle
+		text-align: center
+	&-row,&-links
+		@extend %dfa
+		flex-direction: column
+	&-left
+		@extend %dfa
+		flex-direction: column
+		.subtitle
+			margin-bottom: 10px
+	&-form
+		@extend %df
+		margin-top: 10px
+	&-label
+		position: absolute
+		top: 5px
+	&-link
+		@extend %dfa
 		font-family: $f_bold
-		text-transform: uppercase
+		svg
+			width: 15px
+			margin-right: 10px
+			display: block
+		&:first-child
+			path
+				stroke: $blue
+		&:last-child
+			path
+				fill: $blue
+.call-1
+	background-image: url(img/call-bgc-1.jpg)
+	background-position: top center
+	background-repeat: no-repeat
+
+
+.partners
+	.inner
+		border-radius: 20px
+		overflow: hidden
+		background-color: #F8F8F8
+		box-shadow: 0 0 18px rgba(#000,.14)
+		&-top
+			padding: 20px 10px
+			background-image: url(img/partners-bgc.png)
+			background-repeat: no-repeat
+			background-size: auto 100%
+			background-position: center right
+		&-links
+			@extend %df
+			align-items: flex-start
+			flex-direction: column
+		&-link
+			@extend %dfa
+			margin-top: 10px
+			font-family: $f_bold
+			span
+				&:after
+					+af
+					+wh(100%,1px)
+					background-color: $black
+			svg
+				margin-right: 10px
+			&:first-child
+				padding-left: 23px
+		&-list
+			@extend %df
+			padding: 10px
+			justify-content: space-between
+			flex-wrap: wrap
+		&-item
+			@extend %dfa
+			flex: 0 0 calc(50% - 5px)
+			margin-top: 20px
+			flex-direction: column
+			svg
+				margin-bottom: 10px
+			.subtitle
+				margin-bottom: 10px
+				text-transform: uppercase
+			.subtitle,&-text
+				text-align: center

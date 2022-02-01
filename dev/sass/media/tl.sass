@@ -4,6 +4,18 @@
 	+w(980px)
 .subtitle
 	font-size: 18px
+.button
+	height: 72px
+	&.blue
+		&:after
+			@extend %tr
+		&:hover
+			&:after
+				transform: rotate(405deg)
+.block
+	padding: 116px 0 120px
+	.subtitle
+		margin-bottom: 78px
 
 
 .head
@@ -46,13 +58,8 @@
 			@extend %tr
 			letter-spacing: 1px
 			cursor: pointer
-			border-bottom: 2px solid transparent
 			&::placeholder
 				@extend %tr
-			&:hover,&:focus
-				border-color: $blue
-				&::placeholder
-					opacity: 0
 		button
 			@extend %tr
 			margin-top: 0
@@ -67,10 +74,52 @@
 			line-height: 2
 
 
-.search
-	padding: 116px 0 120px
-	.subtitle
+
+.catalog
+	padding: 92px 0 96px
+	background-repeat: no-repeat
+	background-size: 100%
+	&-subtitle
 		margin-bottom: 78px
-	&-input
-		height: 72px
-		padding: 0 10px 0 140px
+	&-slider
+		margin-bottom: 24px
+	&-slide
+		flex-basis: 378px
+		display: flex
+		flex-direction: column
+		&:first-child
+			margin-left: -396px
+		&-link
+			@extend %tr
+			margin-top: auto
+		&:hover
+			background-color: rgba($red,.8)
+			&,.catalog-slide-link
+				color: #fff
+			&:before
+				background-color: #fff
+
+
+.about
+	&-text
+		margin-bottom: 68px
+		font-size: 24px
+		line-height: 194%
+	&-item
+		height: 360px
+
+
+.call
+	padding: 96px 0
+	&-row
+		flex-direction: row
+		justify-content: space-between
+	&-left
+		align-items: flex-start
+		.subtitle
+			margin-bottom: 20px
+	&-link
+		color: rgba($black,.6)
+	&-form
+		max-width: 576px
+		margin-top: 0
